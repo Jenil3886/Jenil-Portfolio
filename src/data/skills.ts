@@ -1,0 +1,17 @@
+import { CONSTANTS, RESOURCES } from '@/lib/constants';
+
+export const SKILLS = {
+  [CONSTANTS.FRONTEND]: [
+    RESOURCES.REACT,
+    RESOURCES.NEXTJS,
+    RESOURCES.JAVASCRIPT,
+    RESOURCES.TAILWIND_CSS,
+  ],
+  [CONSTANTS.BACKEND]: [
+    RESOURCES.NODEJS,
+    RESOURCES.MONGODB,
+  ],
+  [CONSTANTS.TOOLS]: [
+    // Add tools as needed
+  ],
+};
