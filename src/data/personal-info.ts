@@ -7,9 +7,9 @@ export const PERSONAL_INFO = {
   fullName: 'Jenil Gajera',
   nickName: 'Jenil',
   designation: 'MERN Stack Developer',
-  email: 'jenilgajera@gmail.com',
-  phone: '98765 43210',
-  yearOfExp: 3,
+  email: 'gajerajenil08@gmail.com',
+  phone: '+91 63511 95084',
+  yearOfExp: 1.5,
 };
 
 export const PERSONAL_INFO_LINKS = {
@@ -22,7 +22,7 @@ export const PERSONAL_INFO_LINKS = {
 };
 
 export const ABOUT_SECTIONS = [
-  "I'm Jenil Gajera, a passionate MERN Stack Developer with 3+ years of experience in crafting dynamic web applications. I specialize in React for intuitive front-end experiences and Node.js/Express for robust back-end solutions, while leveraging databases like MongoDB and PostgreSQL to deliver scalable projects.",
+  "I'm Jenil Gajera, a passionate MERN Stack Developer with 1+ years of experience in crafting dynamic web applications. I specialize in React for intuitive front-end experiences and Node.js/Express for robust back-end solutions, while leveraging databases like MongoDB and PostgreSQL to deliver scalable projects.",
   'From designing responsive UIs to architecting efficient APIs, I thrive in solving complex problems with clean, maintainable code. My tech stack includes AWS, TypeScript, and more—ensuring cutting-edge solutions tailored to client needs.',
   "With a commitment to innovation and continuous learning, I'm always eager to explore new technologies and create impactful digital experiences. Let's connect and build something extraordinary together!",
 ];
