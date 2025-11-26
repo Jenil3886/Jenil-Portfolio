@@ -1,3 +1,5 @@
+import type { FC } from 'react';
+
 export interface IconProps {
   size?: number;
   color?: string;
@@ -6,7 +8,8 @@ export interface IconProps {
 
 export interface Resource {
   title: string;
-  iconName: string;
+  icon?: FC<IconProps>;
+  iconName?: string;
 }
 
 export interface FormFieldType {
@@ -19,7 +22,7 @@ export interface FormFieldType {
 
 export interface Icon {
   label: string;
-  icon: React.FC<IconProps>;
+  icon: FC<IconProps>;
   url: string;
 }
 

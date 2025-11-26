@@ -1,5 +1,6 @@
 'use client';
 
+import type { FC } from 'react';
 import { IconProps } from '@/types/common';
 import {
   IconJavascript,
@@ -11,12 +12,22 @@ import {
 } from '@/components/icons';
 
 interface IconRendererProps extends IconProps {
-  iconName: string;
+  icon?: FC<IconProps> | null;
+  iconName?: string;
 }
 
-export function IconRenderer({ iconName, ...props }: IconRendererProps) {
+export function IconRenderer({ icon, iconName, ...props }: IconRendererProps) {
+  if (icon) {
+    const IconComponent = icon;
+    return <IconComponent {...props} />;
+  }
+
+  if (!iconName) {
+    return null;
+  }
+
   // Map of icon names to their components
-  const iconComponents: Record<string, React.FC<IconProps>> = {
+  const iconComponents: Record<string, FC<IconProps>> = {
     IconReact,
     IconNextjs,
     IconNodejs,
