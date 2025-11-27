@@ -103,7 +103,7 @@ export function SkillsSection() {
         </div>
 
         {/* Certifications */}
-        <Card className="mb-16 hover-scale">
+        <Card className="mb-16">
           <CardHeader>
             <CardTitle className="flex items-center gap-3">
               <Code className="h-6 w-6 text-primary" />
@@ -133,7 +133,6 @@ export function SkillsSection() {
           <p className="text-muted-foreground mb-6">Interested in working together? Let's discuss your project.</p>
           <Button 
             size="lg" 
-            className="hover-scale"
             onClick={() => scrollToSection('#contact')}
           >
             Contact Me

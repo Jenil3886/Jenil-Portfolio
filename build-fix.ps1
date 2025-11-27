@@ -9,6 +9,7 @@ Write-Host "Creating directory structure..." -ForegroundColor Yellow
 New-Item -ItemType Directory -Path ".next\server" -Force | Out-Null
 New-Item -ItemType Directory -Path ".next\static" -Force | Out-Null
 New-Item -ItemType Directory -Path ".next\diagnostics" -Force | Out-Null
+
 # Pre-create files to avoid Windows file system issues
 [System.IO.File]::WriteAllText("$PWD\.next\server\pages-manifest.json", "{}")
 [System.IO.File]::WriteAllText("$PWD\.next\diagnostics\build-diagnostics.json", "{}")
@@ -19,12 +20,13 @@ $env:NEXT_TELEMETRY_DISABLED = "1"
 npm run build
 
 if ($LASTEXITCODE -eq 0) {
-    Write-Host "`n✓ Build completed successfully!" -ForegroundColor Green
+    Write-Host ""
+    Write-Host "Build completed successfully!" -ForegroundColor Green
 } else {
-    Write-Host "`nBuild completed but with errors." -ForegroundColor Red
+    Write-Host ""
+    Write-Host "Build completed but with errors." -ForegroundColor Red
     Write-Host "Solutions:" -ForegroundColor Yellow
     Write-Host "1. Add project folder to Windows Defender exclusions" -ForegroundColor Cyan
     Write-Host "2. Run PowerShell as Administrator" -ForegroundColor Cyan
-    Write-Host "3. Deploy directly to Netlify/Vercel (build will work there)" -ForegroundColor Cyan
+    Write-Host "3. Deploy directly to Netlify/Vercel" -ForegroundColor Cyan
 }
-

@@ -59,7 +59,7 @@ export function AboutSection() {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Profile Card */}
-          <Card className="lg:col-span-1 hover-scale">
+          <Card className="lg:col-span-1">
             <CardContent className="p-6 text-center">
               <div className="relative mb-6">
                 <div className="w-32 h-32 rounded-full mx-auto overflow-hidden border-4 border-primary/20">
@@ -87,7 +87,7 @@ export function AboutSection() {
           {/* Bio & Experience */}
           <div className="lg:col-span-2 space-y-6">
             {/* Bio */}
-            <Card className="hover-scale">
+            <Card>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                   <Code className="h-5 w-5 text-primary" />
@@ -102,7 +102,7 @@ export function AboutSection() {
             </Card>
 
             {/* Experience */}
-            <Card className="hover-scale">
+            <Card>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Experience</h3>
                 <div className="space-y-4">
@@ -121,7 +121,7 @@ export function AboutSection() {
             </Card>
             
             {/* Skills */}
-            <Card className="hover-scale">
+            <Card>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Skills</h3>
                 <div className="flex flex-wrap gap-2">
@@ -135,7 +135,7 @@ export function AboutSection() {
             </Card>
             
             {/* Interests */}
-            <Card className="hover-scale">
+            <Card>
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Interests</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">

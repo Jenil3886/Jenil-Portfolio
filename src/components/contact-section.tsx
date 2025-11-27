@@ -63,7 +63,8 @@ export function ContactSection() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact Form */}
-          <Card className="shadow-lg hover-scale">
+          {/* <Card className="shadow-lg hover-scale"> */}
+          <Card className="shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Send className="h-5 w-5 text-primary" />
@@ -127,7 +128,8 @@ export function ContactSection() {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <Card className="shadow-lg hover-scale">
+            {/* <Card className="shadow-lg hover-scale"> */}
+            <Card className="shadow-lg">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Mail className="h-5 w-5 text-primary" />
@@ -179,7 +181,8 @@ export function ContactSection() {
               </CardContent>
             </Card>
 
-            <Card className="shadow-lg hover-scale bg-gradient-to-br from-primary/10 via-background to-background">
+            {/* <Card className="shadow-lg hover-scale bg-gradient-to-br from-primary/10 via-background to-background"> */}
+            <Card className="shadow-lg bg-gradient-to-br from-primary/10 via-background to-background">
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold mb-2">Available for Freelance</h3>
                 <p className="text-muted-foreground mb-4">

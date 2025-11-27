@@ -102,7 +102,7 @@ export function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
-              className="hover-scale" 
+              // className="hover-scale" 
               onClick={downloadResume}
             >
               <FileText className="mr-2 h-5 w-5" /> Download Resume
@@ -110,7 +110,7 @@ export function HeroSection() {
             <Button 
               variant="outline" 
               size="lg" 
-              className="hover-scale"
+              // className="hover-scale"
               onClick={() => scrollToSection('#contact')}
             >
               Contact Me

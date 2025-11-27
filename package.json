@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "prebuild": "node scripts/prebuild.js",
+    "build": "node scripts/prebuild.js && next build",
+    "build:win": "powershell -ExecutionPolicy Bypass -File ./build-fix.ps1",
+    "build:safe": "node scripts/prebuild.js && timeout /t 1 /nobreak >nul 2>&1 & next build",
     "start": "next start",
     "lint": "next lint"
   },
