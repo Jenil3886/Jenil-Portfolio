@@ -1,56 +1,59 @@
 import { RESOURCES } from '../lib/constants';
 import { Project } from '@/types/common';
+import GajeraFilms from '@/assets/images.webp';
+// import StudyFinds from '@/assets/study-finds.webp';
+import YoutubeClone from '@/assets/images2.webp';
 
 export const PROJECTS: Project[] = [
   {
-    title: 'E-Commerce Platform',
-    subTitle: 'Full Stack Shopping Application',
-    preview: '/project-1.jpg', // Add actual preview image path
-    github: 'https://github.com/jenilgajera/ecommerce-platform',
+    title: 'Gajera Films',
+    subTitle: 'Cinematic Photography & Filmmaking Web Page',
+    preview: GajeraFilms,
+    github: 'https://github.com/Jenil3886/Gajera-Films',
+    liveUrl: 'http://gajera-films.netlify.app/',
     details: [
-      'Built a complete e-commerce solution with product catalog, shopping cart, and secure checkout process.',
+      'Built a complete Portfolio with product catalog.',
       'Implemented user authentication, product search, filtering, and sorting capabilities.',
       'Integrated payment gateway and order management system with email notifications.',
     ],
     technologies: [
-      RESOURCES.REACT,
-      RESOURCES.NODEJS,
-      RESOURCES.MONGODB,
-      RESOURCES.JAVASCRIPT,
+      RESOURCES.NEXTJS,
+      RESOURCES.TYPESCRIPT,
+      RESOURCES.TAILWIND_CSS,
+      RESOURCES.EMAILJS
     ],
   },
   {
-    title: 'Task Management App',
-    subTitle: 'Productivity Tool',
-    preview: '/project-2.jpg', // Add actual preview image path
-    github: 'https://github.com/jenilgajera/task-manager',
+    title: 'Youtube Clone',
+    subTitle: 'Youtube Clone',
+    liveUrl: '',
+    preview: YoutubeClone,
+    github: 'https://github.com/jenilgajera/youtube-clone',
     details: [
-      'Developed a task management application with drag-and-drop interface for organizing tasks.',
-      'Implemented features like task categorization, priority levels, due dates, and reminders.',
+      'Developed a youtube clone application with drag-and-drop interface for organizing tasks.',
+      'Implemented features like youtube search, video playback, and video suggestions.',
       'Created a responsive design that works seamlessly across desktop and mobile devices.',
     ],
     technologies: [
-      RESOURCES.NEXTJS,
-      RESOURCES.NODEJS,
-      RESOURCES.MONGODB,
+      RESOURCES.REACT,
+      RESOURCES.SHADCN,
       RESOURCES.TAILWIND_CSS,
+      RESOURCES.NODE_JS,
+      RESOURCES.EXPRESS,
+      RESOURCES.POSTGRESQL,
     ],
   },
   {
-    title: 'Social Media Dashboard',
-    subTitle: 'Analytics Platform',
-    preview: '/project-3.jpg', // Add actual preview image path
-    github: 'https://github.com/jenilgajera/social-dashboard',
+    title: 'Study Finds Landing Page',
+    subTitle: 'Study Finds Landing Page',
+    liveUrl: '',
+    preview: '/project-3.jpg',
+    github: 'https://github.com/jenilgajera/study-finds',
     details: [
-      'Created a comprehensive dashboard for tracking social media metrics across multiple platforms.',
-      'Implemented data visualization with charts and graphs for engagement analytics.',
-      'Built a customizable reporting system with export capabilities.',
+      'Developed a study finds application with drag-and-drop interface for organizing tasks.',
+      'Implemented features like study search, video playback, and video suggestions.',
+      'Created a responsive design that works seamlessly across desktop and mobile devices.',
     ],
-    technologies: [
-      RESOURCES.REACT,
-      RESOURCES.NODEJS,
-      RESOURCES.JAVASCRIPT,
-      RESOURCES.TAILWIND_CSS,
-    ],
+    technologies: [RESOURCES.REACT, RESOURCES.SHADCN, RESOURCES.TAILWIND_CSS],
   },
 ];

@@ -24,7 +24,7 @@ const formSchema = z.object({
 const socialLinks = [
     { name: 'GitHub', icon: Github, url: PERSONAL_INFO_LINKS.github },
     { name: 'LinkedIn', icon: Linkedin, url: PERSONAL_INFO_LINKS.linkedIn },
-    { name: 'WhatsApp', icon: ExternalLink, url: PERSONAL_INFO_LINKS.whatsapp },
+    // { name: 'WhatsApp', icon: ExternalLink, url: PERSONAL_INFO_LINKS.whatsapp },
 ];
 
 export function ContactSection() {
@@ -154,7 +154,7 @@ export function ContactSection() {
                     <MapPin className="h-5 w-5 text-primary mt-1" />
                     <div>
                       <Label>Location</Label>
-                      <p className="text-sm">Mumbai, India</p>
+                      <p className="text-sm">Surat, Gujarat, India</p>
                     </div>
                   </div>
                 </div>

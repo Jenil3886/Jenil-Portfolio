@@ -3,6 +3,7 @@ import { CSSIcon } from '@/components/icons/css'
 import { DockerIcon } from '@/components/icons/docker'
 import { EC2Icon } from '@/components/icons/ec2'
 import { ElasticSearchIcon } from '@/components/icons/elasticsearch'
+import { EmailJSIcon } from '@/components/icons/emailJS'
 import { ESLintIcon } from '@/components/icons/eslint'
 import { ExpressIcon } from '@/components/icons/express'
 import { FirebaseIcon } from '@/components/icons/firebase'
@@ -243,5 +244,9 @@ export const RESOURCES = {
   OPENAI: {
     title: 'OpenAI',
     icon: OpenAIIcon,
+  },
+  EMAILJS: {
+    title: 'EmailJS',
+    icon: EmailJSIcon,
   },
 }

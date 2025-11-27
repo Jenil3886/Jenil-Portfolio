@@ -7,6 +7,7 @@ import { Github, Linkedin, ArrowDown, FileText } from 'lucide-react';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { PERSONAL_INFO, PERSONAL_INFO_LINKS } from '@/data/personal-info';
 import heroBg from "@/assets/hero-bg.jpg"
+import { getResumeDownloadLink } from '@/lib/utils';
 
 const scrollToSection = (href: string) => {
   const element = document.querySelector(href);
@@ -20,9 +21,56 @@ export function HeroSection() {
   
   const stats = [
     { label: "Years Experience", value: "1+" },
-    { label: "Projects Completed", value: "15+" },
+    { label: "Projects Completed", value: "6+" },
     { label: "Technologies Mastered", value: "10+" }
   ];
+
+  const downloadResume = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    try {
+      const downloadLink = getResumeDownloadLink();
+      const response = await fetch('/jenil-gajera-resume.pdf');
+      
+      if (!response.ok) {
+        // Try alternative path
+        const altResponse = await fetch('/resume.pdf');
+        if (!altResponse.ok) {
+          throw new Error('Resume file not found');
+        }
+        const blob = await altResponse.blob();
+        const url = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = downloadLink;
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        setTimeout(() => {
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+        }, 100);
+        return;
+      }
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = downloadLink;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      setTimeout(() => {
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      }, 100);
+    } catch (error) {
+      console.error('Error downloading resume:', error);
+      alert('Resume file not found. Please ensure the PDF exists in the public folder.');
+    }
+  }
 
   return (
       <div ref={ref} id="home" className="min-h-screen bg-gradient-bg">
@@ -52,10 +100,12 @@ export function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="hover-scale" asChild>
-              <a href="/resume.pdf" download>
-                <FileText className="mr-2 h-5 w-5" /> Download Resume
-              </a>
+            <Button 
+              size="lg" 
+              className="hover-scale" 
+              onClick={downloadResume}
+            >
+              <FileText className="mr-2 h-5 w-5" /> Download Resume
             </Button>
             <Button 
               variant="outline" 

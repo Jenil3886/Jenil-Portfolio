@@ -12,9 +12,9 @@ import { PROJECTS } from '@/data/projects';
 const projects = PROJECTS.map(project => ({
   title: project.title,
   description: project.subTitle,
-  image: project.preview || '/placeholder.svg',
+  preview: project.preview,
+  liveUrl: project.liveUrl,
   technologies: project.technologies ? project.technologies.map(tech => tech?.title || 'Unknown') : [],
-  liveUrl: '#',
   githubUrl: project.github,
 }));
 
@@ -40,7 +40,7 @@ export function ProjectsSection() {
               <CardHeader className="p-0">
                 <div className="relative overflow-hidden">
                   <img
-                    src={project.image}
+                    src={project.preview.src || ''}
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
                   />
@@ -48,7 +48,7 @@ export function ProjectsSection() {
                 </div>
               </CardHeader>
               
-              <CardContent className="p-6">
+              <CardContent className="p-3">
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">
                   {project.title}
                 </h3>
@@ -65,7 +65,7 @@ export function ProjectsSection() {
                 </div>
               </CardContent>
               
-              <CardFooter className="px-6 pb-6 pt-0 flex justify-between">
+              <CardFooter className="px-3 pb-3 pt-0 flex justify-between">
                 <Button size="sm" variant="outline" asChild>
                   <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     <Github className="h-4 w-4" />

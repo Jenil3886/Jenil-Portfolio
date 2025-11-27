@@ -16,8 +16,8 @@ export const PERSONAL_INFO_LINKS = {
   phone: `tel:+${VALUES.PHONE_CODE}${removeSpaces(PERSONAL_INFO.phone)}`,
   whatsapp: `tel:+${VALUES.PHONE_CODE}${removeSpaces(PERSONAL_INFO.phone)}`,
   email: `mailto:${PERSONAL_INFO.email}`,
-  linkedIn: 'https://www.linkedin.com/in/jenilgajera',
-  github: 'https://github.com/jenilgajera',
+  linkedIn: 'https://www.linkedin.com/in/jenil-gajera-352572282/',
+  github: 'https://github.com/Jenil3886',
   telegram: 'https://t.me/jenilgajera',
 };
 

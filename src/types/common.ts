@@ -29,8 +29,9 @@ export interface Icon {
 export interface Project {
   title: string;
   subTitle: string;
-  preview: string;
+  preview: any;
   github: string;
+  liveUrl: string;
   details: string[];
   technologies: Resource[];
 }

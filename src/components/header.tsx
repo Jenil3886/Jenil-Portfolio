@@ -8,8 +8,9 @@ import { ThemeToggle } from './theme-toggle';
 import { useActiveSection } from '@/hooks/use-active-section';
 import { cn } from '@/lib/utils';
 import { useSectionInView } from '@/hooks/use-section-in-view';
-
+import Image from 'next/image';
 import { NAV_ITEMS } from '@/data/nav-items';
+import Logo from '@/assets/logo 1.png';
 
 export const navLinks = NAV_ITEMS.map(item => ({
   name: item.label,
@@ -23,8 +24,9 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center">
         <Link href="#home" className="mr-6 flex items-center space-x-2">
-          <Code className="h-6 w-6" />
-          <span className="font-bold">Jenil Gajera</span>
+          {/* <Code className="h-6 w-6" />
+          <span className="font-bold">Jenil Gajera</span> */}
+          <Image src={Logo} alt="Jenil Gajera" width={130} height={50} />
         </Link>
 
         <nav className="hidden md:flex flex-1 items-center space-x-6 text-sm font-medium">
