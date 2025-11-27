@@ -10,15 +10,29 @@ import { cn } from '@/lib/utils';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import Image from 'next/image';
 import { NAV_ITEMS } from '@/data/nav-items';
-import Logo from '@/assets/logo 1.png';
+import { useTheme } from 'next-themes';
+import { useEffect, useState } from 'react';
+import LogoDark from '@/assets/logo 1.png';
+import LogoLight from '@/assets/logo 1 light.png';
 
 export const navLinks = NAV_ITEMS.map(item => ({
   name: item.label,
   hash: item.path,
-})) as const;
+}));
 
 export function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSection();
+  const { theme, systemTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+
+  // Handle theme detection (avoid hydration mismatch)
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Determine current theme (handle system theme)
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+  const isDark = currentTheme === 'dark';
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -26,7 +40,22 @@ export function Header() {
         <Link href="#home" className="mr-6 flex items-center space-x-2">
           {/* <Code className="h-6 w-6" />
           <span className="font-bold">Jenil Gajera</span> */}
-          <Image src={Logo} alt="Jenil Gajera" width={130} height={50} />
+          {mounted ? (
+            <Image 
+              src={isDark ? LogoDark : LogoLight} 
+              alt="Jenil Gajera" 
+              width={130} 
+              height={50} 
+            />
+          ) : (
+            // Show dark logo as default until theme is detected
+            <Image 
+              src={LogoDark} 
+              alt="Jenil Gajera" 
+              width={130} 
+              height={50} 
+            />
+          )}
         </Link>
 
         <nav className="hidden md:flex flex-1 items-center space-x-6 text-sm font-medium">

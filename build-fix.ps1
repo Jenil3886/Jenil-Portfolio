@@ -9,7 +9,8 @@ Write-Host "Creating directory structure..." -ForegroundColor Yellow
 New-Item -ItemType Directory -Path ".next\server" -Force | Out-Null
 New-Item -ItemType Directory -Path ".next\static" -Force | Out-Null
 New-Item -ItemType Directory -Path ".next\diagnostics" -Force | Out-Null
-# Pre-create diagnostics file to avoid Windows file system issues
+# Pre-create files to avoid Windows file system issues
+[System.IO.File]::WriteAllText("$PWD\.next\server\pages-manifest.json", "{}")
 [System.IO.File]::WriteAllText("$PWD\.next\diagnostics\build-diagnostics.json", "{}")
 
 Write-Host "Starting build..." -ForegroundColor Green
