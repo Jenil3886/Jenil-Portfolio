@@ -1,0 +1,10 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://jenilgajera.netlify.app/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+

@@ -35,15 +35,27 @@ export function ProjectsSection() {
 
         {/* Projects Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
+          {projects.map((project, index) => {
+            // Handle both object (with .src) and string previews
+            const previewSrc = typeof project.preview === 'string' 
+              ? project.preview 
+              : (project.preview?.src || null);
+            
+            return (
             <Card key={index} className="group hover-scale overflow-hidden">
               <CardHeader className="p-0">
                 <div className="relative overflow-hidden">
-                  <img
-                    src={project.preview.src || ''}
-                    alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
+                  {previewSrc ? (
+                    <img
+                      src={previewSrc}
+                      alt={project.title}
+                      className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div className="w-full h-48 bg-muted flex items-center justify-center">
+                      <span className="text-muted-foreground">No preview</span>
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
               </CardHeader>
@@ -72,15 +84,23 @@ export function ProjectsSection() {
                     Code
                   </a>
                 </Button>
-                <Button size="sm" asChild>
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
-                    <ExternalLink className="h-4 w-4" />
+                {project.liveUrl ? (
+                  <Button size="sm" asChild>
+                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                      <ExternalLink className="h-4 w-4" />
+                      Demo
+                    </a>
+                  </Button>
+                ) : (
+                  <Button size="sm" disabled>
+                    <ExternalLink className="h-4 w-4 mr-2" />
                     Demo
-                  </a>
-                </Button>
+                  </Button>
+                )}
               </CardFooter>
             </Card>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
