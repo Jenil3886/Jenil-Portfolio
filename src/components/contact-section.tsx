@@ -1,9 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { Github, Linkedin, Mail, MapPin, Phone, Send, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Phone, Send, ExternalLink, Loader2 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -13,6 +15,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { useToast } from '@/hooks/use-toast';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { PERSONAL_INFO, PERSONAL_INFO_LINKS } from '@/data/personal-info';
+import { EMAILJS_DATA } from '@/lib/constants';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -20,16 +23,22 @@ const formSchema = z.object({
   message: z.string().min(10, { message: 'Message must be at least 10 characters.' }),
 });
 
+// EmailJS configuration - set these in your .env.local
+const EMAILJS_SERVICE_ID = EMAILJS_DATA.EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = EMAILJS_DATA.EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = EMAILJS_DATA.EMAILJS_PUBLIC_KEY;
+
 // Use the social media links from personal-info
 const socialLinks = [
-    { name: 'GitHub', icon: Github, url: PERSONAL_INFO_LINKS.github },
-    { name: 'LinkedIn', icon: Linkedin, url: PERSONAL_INFO_LINKS.linkedIn },
-    // { name: 'WhatsApp', icon: ExternalLink, url: PERSONAL_INFO_LINKS.whatsapp },
+  { name: 'GitHub', icon: Github, url: PERSONAL_INFO_LINKS.github },
+  { name: 'LinkedIn', icon: Linkedin, url: PERSONAL_INFO_LINKS.linkedIn },
+  // { name: 'WhatsApp', icon: ExternalLink, url: PERSONAL_INFO_LINKS.whatsapp },
 ];
 
 export function ContactSection() {
   const { ref } = useSectionInView('Contact');
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -40,13 +49,45 @@ export function ContactSection() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
-    toast({
-      title: 'Message Sent!',
-      description: "Thanks for reaching out. I'll get back to you soon.",
-    });
-    form.reset();
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      toast({
+        title: 'Email service not configured',
+        description: 'EmailJS keys are missing. Please try again later.',
+        variant: 'destructive',
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: values.name,
+          from_email: values.email,
+          message: values.message,
+        },
+        EMAILJS_PUBLIC_KEY,
+      );
+
+      toast({
+        title: 'Message Sent!',
+        description: "Thanks for reaching out. I'll get back to you soon.",
+      });
+      form.reset();
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      toast({
+        title: 'Something went wrong',
+        description: 'Your message could not be sent. Please try again later.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -118,8 +159,17 @@ export function ContactSection() {
                       </FormItem>
                     )}
                   />
-                  <Button type="submit" className="w-full" size="lg">
-                    <Send className="mr-2 h-4 w-4" /> Send Message
+                  <Button type="submit" className="w-full" size="lg" disabled={isSubmitting}>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="mr-2 h-4 w-4" /> Send Message
+                      </>
+                    )}
                   </Button>
                 </form>
               </Form>

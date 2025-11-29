@@ -7,11 +7,12 @@
     "prebuild": "node scripts/prebuild.js",
     "build": "node scripts/prebuild.js && next build",
     "build:win": "powershell -ExecutionPolicy Bypass -File ./build-fix.ps1",
-    "build:safe": "node scripts/prebuild.js && timeout /t 1 /nobreak >nul 2>&1 & next build",
+    "build:safe": "powershell -ExecutionPolicy Bypass -File ./build-fix.ps1",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@genkit-ai/googleai": "^1.16.0",
     "@genkit-ai/next": "^1.16.0",
     "@hookform/resolvers": "^4.1.3",

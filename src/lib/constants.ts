@@ -54,6 +54,12 @@ export const LABELS = {
   TELEGRAM: 'Telegram',
 };
 
+export const EMAILJS_DATA = {
+  EMAILJS_SERVICE_ID: "service_8p1efie",
+  EMAILJS_TEMPLATE_ID: "template_pktjwil",
+  EMAILJS_PUBLIC_KEY: "pXquZjXsRitZtxpvN",
+}
+
 export const HASH_PATHS = {
   HOME: '#home',
   ABOUT: '#about',
