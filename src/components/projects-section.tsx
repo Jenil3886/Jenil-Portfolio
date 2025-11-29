@@ -12,6 +12,7 @@ import { PROJECTS } from '@/data/projects';
 const projects = PROJECTS.map(project => ({
   title: project.title,
   description: project.subTitle,
+  details: project.details || [],
   preview: project.preview,
   liveUrl: project.liveUrl,
   technologies: project.technologies ? project.technologies.map(tech => tech?.title || 'Unknown') : [],
@@ -64,9 +65,19 @@ export function ProjectsSection() {
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-200">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
+                <p className="text-muted-foreground text-sm mb-3 leading-relaxed">
                   {project.description}
                 </p>
+                
+                {project.details && project.details.length > 0 && (
+                  <ul className="text-muted-foreground text-sm mb-4 space-y-1.5 list-disc list-inside">
+                    {project.details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="leading-relaxed">
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
