@@ -2,39 +2,52 @@
 
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { MapPin, Calendar, Code, Coffee, Gamepad2, Music } from 'lucide-react';
-import { IconRenderer } from '@/components/icon-renderer';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { ABOUT_SECTIONS, PERSONAL_INFO } from '@/data/personal-info';
-import { SKILLS } from '@/data/skills';
-import { CONSTANTS } from '@/lib/constants';
 
-// Combine frontend and backend skills for the about section
-// Safely handle potentially undefined skills
-const techSkills = [
-  ...(SKILLS[CONSTANTS.FRONTEND] || []),
-  ...(SKILLS[CONSTANTS.BACKEND] || []),
-].map(tech => ({
-  name: tech?.title || 'Unknown',
-  icon: null, // Temporarily set to null to avoid errors
-}));
 
 export function AboutSection() {
   const { ref } = useSectionInView('About');
   
   const experiences = [
     {
-      title: "MERN Stack Developer",
-      company: "Freelance",
-      period: "2023 - Present",
-      description: "Developed full-stack web applications using MongoDB, Express.js, React, and Node.js"
+      title: "React Developer",
+      company: "CarrerSahi",
+      period: "2023",
+      description: [
+        "Started career as a React Developer",
+        "Implemented Redux for scalable state management",
+        "Integrated APIs and handled async data flow",
+        "Improved UI design and reusable component structure",
+        "Understood complete state management lifecycle"
+      ]
+    },
+    {
+      title: "Node.js Developer",
+      company: "JobWork Platform",
+      period: "2023",
+      description: [
+        "Worked on a pre-built JobWork management system",
+        "Handled backend logic using Node.js",
+        "Worked with PostgreSQL database operations",
+        "Implemented job handling & invoice calculation modules",
+        "Fixed frontend UI and small design issues"
+      ]
+    },
+    {
+      title: "Full-Stack Developer",
+      company: "Edysor AI",
+      period: "2024",
+      description: [
+        "Developed backend APIs using Node.js",
+        "Integrated VAPI Voice Agent for AI automation",
+        "Implemented role-based APIs and OAuth flows",
+        "Integrated backend APIs in React frontend",
+        "Built dynamic UI using Shadcn UI & Tailwind CSS",
+        "Performed major SQL-based backend operations"
+      ]
     }
-  ];
-
-  const skills = [
-    "MongoDB", "Express.js", "React.js", "Node.js", 
-    "JavaScript", "HTML5", "CSS3", "Git", "REST APIs", "JWT"
   ];
 
   const interests = [
@@ -106,30 +119,22 @@ export function AboutSection() {
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Experience</h3>
                 <div className="space-y-4">
-                  {experiences.map((exp, index) => (
-                    <div key={index} className="border-l-2 border-primary/20 pl-4">
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-                        <h4 className="font-medium">{exp.title}</h4>
-                        <span className="text-sm text-muted-foreground">{exp.period}</span>
-                      </div>
-                      <p className="text-sm text-primary mb-2">{exp.company}</p>
-                      <p className="text-sm text-muted-foreground">{exp.description}</p>
+                {experiences.map((exp, index) => (
+                  <div key={index} className="border-l-2 border-primary/20 pl-4">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                      <h4 className="font-medium">{exp.title}</h4>
+                      <span className="text-sm text-muted-foreground">{exp.period}</span>
                     </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-            
-            {/* Skills */}
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-4">Skills</h3>
-                <div className="flex flex-wrap gap-2">
-                  {skills.map((skill, index) => (
-                    <Badge key={index} variant="outline" className="px-3 py-1">
-                      {skill}
-                    </Badge>
-                  ))}
+                    <p className="text-sm text-primary mb-2">{exp.company}</p>
+
+                    <ul className="text-sm text-muted-foreground list-disc pl-4 space-y-1">
+                      {exp.description.map((line, i) => (
+                        <li key={i}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+
                 </div>
               </CardContent>
             </Card>
