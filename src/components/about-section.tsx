@@ -94,9 +94,6 @@ export function AboutSection() {
                       className="w-full h-full object-cover scale-110 transition-transform duration-300 hover:scale-100" 
                     />
                   </div>
-                  
-                  {/* Decorative Elements */}
-                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
                 </div>
               </div>
               

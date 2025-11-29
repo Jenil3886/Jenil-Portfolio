@@ -1267,12 +1267,12 @@ const CardFooter = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$
 CardFooter.displayName = "CardFooter";
 ;
 }}),
-"[project]/src/assets/jenil1.png (static in ecmascript)": ((__turbopack_context__) => {
+"[project]/src/assets/jenil4.png (static in ecmascript)": ((__turbopack_context__) => {
 
 var { g: global, __dirname } = __turbopack_context__;
 {
-__turbopack_context__.v("/_next/static/media/jenil1.8c698085.png");}}),
-"[project]/src/assets/jenil1.png.mjs { IMAGE => \"[project]/src/assets/jenil1.png (static in ecmascript)\" } [app-ssr] (structured image object, ecmascript)": ((__turbopack_context__) => {
+__turbopack_context__.v("/_next/static/media/jenil4.d86f91ea.png");}}),
+"[project]/src/assets/jenil4.png.mjs { IMAGE => \"[project]/src/assets/jenil4.png (static in ecmascript)\" } [app-ssr] (structured image object, ecmascript)": ((__turbopack_context__) => {
 "use strict";
 
 var { g: global, __dirname } = __turbopack_context__;
@@ -1280,15 +1280,15 @@ var { g: global, __dirname } = __turbopack_context__;
 __turbopack_context__.s({
     "default": (()=>__TURBOPACK__default__export__)
 });
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$jenil1$2e$png__$28$static__in__ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/jenil1.png (static in ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$jenil4$2e$png__$28$static__in__ecmascript$29$__ = __turbopack_context__.i("[project]/src/assets/jenil4.png (static in ecmascript)");
 ;
 const __TURBOPACK__default__export__ = {
-    src: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$jenil1$2e$png__$28$static__in__ecmascript$29$__["default"],
-    width: 960,
-    height: 1088,
-    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAICAIAAAC6ZnJRAAAAu0lEQVR42gGwAE//AJGOkpaTlpuXmZ+bnKSgopqUlJCHhACbmJ2fnaBsZ2pfVVWEfHqfmZmUjYwAnZugmpiaZlFLhF1Oe2Vdop2doJqbAKSjqKmkpp57bsCOeMKah66np6ijowCnpaqysbSiioOseWW7n5OtqausqKoAmpieqKu0nZmfpXtqysTDusDHqaesAJWXoqi/2aO30aSotbfL3cDW6bzH0wCFi5qdt9WqxuWtyOW1zuamv9mxw9aqK2jVQKvK8QAAAABJRU5ErkJggg==",
-    blurWidth: 7,
-    blurHeight: 8
+    src: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$jenil4$2e$png__$28$static__in__ecmascript$29$__["default"],
+    width: 1120,
+    height: 928,
+    blurDataURL: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAHCAIAAAC6O5sJAAAAuklEQVR42gGvAFD/AIyJjZWTlZqYmJ2cnKKhoZmVk46Hg4eCfgCVk5ehoKJ2c3RdVlWBenedmZeRjImIg4AAmpidoKChYlRQd1dJc19WnZmYnZiXjoqIAKCeo6moqZR8ca6Fc7qWgquloqain5yXlACioaaxsrSjkYqkd2O6m4urqamrqKijoKEAl5Wap6itoaCkm3Rixbevub/DqKeqmZeaAJKRl6a2x6O2yqKZm7PAzMfb6LjCypeXnGt1Y8OHxlm1AAAAAElFTkSuQmCC",
+    blurWidth: 8,
+    blurHeight: 7
 };
 }}),
 "[project]/src/components/about-section.tsx [app-ssr] (ecmascript)": ((__turbopack_context__) => {
@@ -1309,7 +1309,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$music$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Music$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/music.js [app-ssr] (ecmascript) <export default as Music>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$section$2d$in$2d$view$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/use-section-in-view.ts [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$personal$2d$info$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/personal-info.ts [app-ssr] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$jenil1$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$jenil1$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/src/assets/jenil1.png.mjs { IMAGE => "[project]/src/assets/jenil1.png (static in ecmascript)" } [app-ssr] (structured image object, ecmascript)');
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$jenil4$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$jenil4$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object$2c$__ecmascript$29$__ = __turbopack_context__.i('[project]/src/assets/jenil4.png.mjs { IMAGE => "[project]/src/assets/jenil4.png (static in ecmascript)" } [app-ssr] (structured image object, ecmascript)');
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/image.js [app-ssr] (ecmascript)");
 'use client';
 ;
@@ -1440,7 +1440,7 @@ function AboutSection() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                     className: "relative w-full h-full rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20 ring-4 ring-background",
                                                     children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$image$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                                                        src: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$jenil1$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$jenil1$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
+                                                        src: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$assets$2f$jenil4$2e$png$2e$mjs__$7b$__IMAGE__$3d3e$__$225b$project$5d2f$src$2f$assets$2f$jenil4$2e$png__$28$static__in__ecmascript$2922$__$7d$__$5b$app$2d$ssr$5d$__$28$structured__image__object$2c$__ecmascript$29$__["default"],
                                                         alt: "Jenil Gajera",
                                                         width: 160,
                                                         height: 160,
@@ -3972,4 +3972,4 @@ function ContactSection() {
 
 };
 
-//# sourceMappingURL=%5Broot-of-the-server%5D__8a1d0cad._.js.map
+//# sourceMappingURL=%5Broot-of-the-server%5D__98158860._.js.map
