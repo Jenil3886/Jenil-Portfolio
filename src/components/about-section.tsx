@@ -5,7 +5,8 @@ import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Calendar, Code, Coffee, Gamepad2, Music } from 'lucide-react';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { ABOUT_SECTIONS, PERSONAL_INFO } from '@/data/personal-info';
-
+import jenilImage from '@/assets/jenil1.png';
+import Image from 'next/image';
 
 export function AboutSection() {
   const { ref } = useSectionInView('About');
@@ -72,26 +73,55 @@ export function AboutSection() {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Profile Card */}
-          <Card className="lg:col-span-1">
-            <CardContent className="p-6 text-center">
-              <div className="relative mb-6">
-                <div className="w-32 h-32 rounded-full mx-auto overflow-hidden border-4 border-primary/20">
-                  <div className="w-full h-full bg-primary/20 flex items-center justify-center text-4xl font-bold text-primary">
-                    {PERSONAL_INFO.fullName.charAt(0)}
+          <Card className="lg:col-span-1 overflow-hidden border-2 border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+            <CardContent className="p-8 text-center relative">
+              {/* Gradient Background */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-50" />
+              
+              {/* Profile Image */}
+              <div className="relative mb-6 z-10">
+                <div className="relative w-40 h-40 mx-auto">
+                  {/* Outer Glow Ring */}
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary via-accent to-primary opacity-20 blur-xl animate-pulse" />
+                  
+                  {/* Image Container */}
+                  <div className="relative w-full h-full rounded-full overflow-hidden border-4 border-primary/30 shadow-2xl shadow-primary/20 ring-4 ring-background">
+                    <Image 
+                      src={jenilImage} 
+                      alt="Jenil Gajera" 
+                      width={160} 
+                      height={160} 
+                      className="w-full h-full object-cover scale-110 transition-transform duration-300 hover:scale-100" 
+                    />
                   </div>
+                  
+                  {/* Decorative Elements */}
+                  <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-primary to-transparent rounded-full" />
                 </div>
               </div>
-              <h3 className="text-xl font-semibold mb-2">{PERSONAL_INFO.fullName}</h3>
-              <p className="text-muted-foreground mb-4">{PERSONAL_INFO.designation}</p>
               
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center justify-center gap-2">
-                  <MapPin className="h-4 w-4 text-primary" />
-                  <span>India</span>
+              {/* Name & Title */}
+              <div className="relative z-10 mb-6">
+                <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
+                  {PERSONAL_INFO.fullName}
+                </h3>
+                <p className="text-sm font-medium text-primary mb-1">{PERSONAL_INFO.designation}</p>
+                <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-primary to-transparent mx-auto mt-3" />
+              </div>
+              
+              {/* Info Items */}
+              <div className="relative z-10 space-y-3">
+                <div className="flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-lg bg-muted/50 hover:bg-muted/80 transition-colors duration-200 border border-border/50">
+                  <div className="p-1.5 rounded-full bg-primary/10">
+                    <MapPin className="h-4 w-4 text-primary" />
+                  </div>
+                  <span className="text-sm font-medium">Surat, Gujarat, India</span>
                 </div>
-                <div className="flex items-center justify-center gap-2">
-                  <Calendar className="h-4 w-4 text-primary" />
-                  <span>1+ Years Experience</span>
+                <div className="flex items-center justify-center gap-2.5 px-4 py-2.5 rounded-lg bg-muted/50 hover:bg-muted/80 transition-colors duration-200 border border-border/50">
+                  <div className="p-1.5 rounded-full bg-primary/10">
+                    <Calendar className="h-4 w-4 text-primary" />
+                  </div>
+                  <span className="text-sm font-medium">{PERSONAL_INFO.yearOfExp}+ Years Experience</span>
                 </div>
               </div>
             </CardContent>
