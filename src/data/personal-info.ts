@@ -9,7 +9,7 @@ export const PERSONAL_INFO = {
   designation: 'MERN Stack Developer',
   email: 'gajerajenil08@gmail.com',
   phone: '+91 63511 95084',
-  yearOfExp: 1.5,
+  yearOfExp: 1,
 };
 
 export const PERSONAL_INFO_LINKS = {
