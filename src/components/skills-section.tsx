@@ -37,7 +37,8 @@ export function SkillsSection() {
       })),
     },
     {
-      title: 'Database & Tools',
+      // title: 'Database & Tools',
+      title: 'Tools',
       icon: Database,
       skills: (SKILLS[CONSTANTS.TOOLS] || []).map((skill) => ({
         name: skill?.title || 'Unknown',
