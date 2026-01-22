@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Dockerize Node.js + TypeScript Project (Documentation)
 
-## Getting Started
+**Prepared by:** Jenil Gajera
+**Role:** Full Stack / DevOps / Cloud
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+This documentation explains how to Dockerize a Node.js + TypeScript application using a multi-stage Docker build. The objective is to produce a lightweight production image and enable consistent DevOps workflows.
+
+> **Use Case**: Deploying TypeScript-based Node services in containerized environments (Local, CI/CD, Cloud, K8s).
+
+---
+
+## Prerequisites
+
+* Node.js (Local development)
+* Docker Desktop / Docker Engine installed
+* Basic understanding of Node.js + TypeScript project structure
+
+Typical project structure:
+
+```
+/node-ts-docker-devops
+ ├── src/
+ ├── dist/
+ ├── package.json
+ ├── tsconfig.json
+ ├── Dockerfile
+ └── .dockerignore
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Step 1 — Create Dockerfile
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+At the project root, create a `Dockerfile` (no extension).
 
-## Learn More
+### **Dockerfile (Multi-Stage Build)**
 
-To learn more about Next.js, take a look at the following resources:
+```dockerfile
+# Step 1: Build stage
+FROM node:22-alpine AS builder
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci
+COPY . .
+RUN npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Step 2: Production stage
+FROM node:22-alpine
+WORKDIR /app
+COPY --from=builder /app/package*.json ./
+COPY --from=builder /app/dist ./dist
+RUN npm ci --only=production
+EXPOSE 3000
+CMD ["node", "dist/app.js"]
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### **Why Multi-Stage? **
 
-## Deploy on Vercel
+* Smaller production image
+* No dev dependencies inside final image
+* Faster deployments & smaller attack surface
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Step 2 — Create `.dockerignore`
+
+Prevents unnecessary files from being copied into the image.
+
+```
+node_modules
+dist
+.git
+.github
+.vscode
+npm-debug.log
+.env
+```
+
+---
+
+## Step 3 — Build Docker Image
+
+Run:
+
+```
+docker build -t node-ts-devops:latest .
+```
+
+### After build, verify:
+
+```
+docker images
+```
+
+> **Expected Result:** `node-ts-devops` with `latest` tag should appear.
+
+---
+
+## Step 4 — Run Container (Local Testing)
+
+Run application in container:
+
+```
+docker run -d -p 3000:3000 --name my-node-app node-ts-devops:latest
+```
+
+### Useful Commands
+
+Check running containers:
+
+```
+docker ps
+```
+
+Logs:
+
+```
+docker logs my-node-app
+```
+
+Stop & Remove:
+
+```
+docker stop my-node-app && docker rm my-node-app
+```
+
+---
+
+## Step 5 — GitHub Integration
+
+Push Docker config with:
+
+```
+git add Dockerfile .dockerignore
+git commit -m "Add Dockerfile for Node + TS Dockerization"
+git push origin main
+```
+
+---
+
+## Deployment Notes (Presentation Points)
+
+* Works with Kubernetes / Docker Swarm / ECS
+* Supports CI pipelines (GitHub Actions, GitLab CI, Jenkins)
+* Container image becomes consistent runtime
+
+---
+
+## Architecture Diagram (High-Level)
+
+```
+ Developer → Dockerfile → Docker Build → Docker Image → Container → Browser/API Client
+```
+
+---
+
+## Client Explanation Summary
+
+> "We containerized the Node + TypeScript application using a multi‑stage Docker build. The production image contains only compiled code and production dependencies, resulting in a smaller, more secure and deployment‑friendly artifact. The container exposes port 3000 and runs consistently across environments including local, CI/CD, and cloud platforms."
+
+---
+
+## Files Delivered
+
+✔ Dockerfile
+✔ .dockerignore
+✔ Container Deployment Procedure
+✔ Ready for PDF / DOCX / MD Export
