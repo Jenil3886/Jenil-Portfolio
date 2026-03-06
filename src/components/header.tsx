@@ -2,15 +2,15 @@
 
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { ThemeToggle } from './theme-toggle';
 import { useActiveSection } from '@/hooks/use-active-section';
 import { cn } from '@/lib/utils';
 import { NAV_ITEMS } from '@/data/nav-items';
-import { motion } from 'framer-motion';
 
-export const navLinks = NAV_ITEMS.map(item => ({
+export const navLinks = NAV_ITEMS.map((item) => ({
   name: item.label,
   hash: item.path,
 }));
@@ -69,7 +69,7 @@ export function Header() {
                   <SheetClose asChild key={link.hash}>
                     <Link
                       href={link.hash}
-                       onClick={() => {
+                      onClick={() => {
                         setActiveSection(link.name);
                         setTimeOfLastClick(Date.now());
                       }}

@@ -1,4 +1,4 @@
-import { CONSTANTS, RESOURCES } from '@/lib/constants';
+import { CONSTANTS, RESOURCES } from "@/lib/constants";
 
 export const SKILLS = {
   [CONSTANTS.FRONTEND]: [
@@ -19,6 +19,7 @@ export const SKILLS = {
     RESOURCES.MYSQL,
     RESOURCES.MONGODB,
     RESOURCES.OPENAI,
+    RESOURCES.GRAPHQL,
   ],
   [CONSTANTS.TOOLS]: [
     RESOURCES.GIT,

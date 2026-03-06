@@ -411,46 +411,42 @@ var _s = __turbopack_context__.k.signature();
 function ThemeToggle() {
     _s();
     const { setTheme, theme } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$themes$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTheme"])();
-    const [open, setOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [input, setInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
     const [history, setHistory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([
-        'theme-cli v1.0 initialized',
-        "type 'light' for light mode",
-        "type anything else for dark mode"
+        'theme-terminal online',
+        "type 'light' to switch light mode",
+        'any other command => dark mode'
     ]);
-    const runCommand = (value)=>{
-        const command = value.trim().toLowerCase();
+    const runThemeCommand = (value)=>{
+        const cmd = value.trim().toLowerCase();
         const nextHistory = [
             ...history,
             `$ ${value || ' '}`
         ];
-        if (command === 'light') {
+        if (cmd === 'light') {
             setTheme('light');
-            nextHistory.push('> switched to LIGHT mode');
+            nextHistory.push('> switched to LIGHT');
         } else {
             setTheme('dark');
-            nextHistory.push('> switched to DARK mode');
+            nextHistory.push('> switched to DARK');
         }
         setHistory(nextHistory.slice(-9));
         setInput('');
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Dialog"], {
-        open: open,
-        onOpenChange: setOpen,
         children: [
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogTrigger"], {
                 asChild: true,
                 children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
                     variant: "ghost",
                     size: "icon",
-                    title: "Terminal Theme Console",
-                    className: "border border-primary/35 bg-secondary/50 text-primary hover:bg-primary/15",
+                    className: "border border-primary/35 bg-black/50 text-primary hover:bg-primary/10",
                     children: [
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$square$2d$terminal$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__TerminalSquare$3e$__["TerminalSquare"], {
-                            className: "h-[1.05rem] w-[1.05rem]"
+                            className: "h-[1.1rem] w-[1.1rem]"
                         }, void 0, false, {
                             fileName: "[project]/src/components/theme-toggle.tsx",
-                            lineNumber: 45,
+                            lineNumber: 39,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -458,159 +454,158 @@ function ThemeToggle() {
                             children: "Open Theme Terminal"
                         }, void 0, false, {
                             fileName: "[project]/src/components/theme-toggle.tsx",
-                            lineNumber: 46,
+                            lineNumber: 40,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/theme-toggle.tsx",
-                    lineNumber: 39,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/src/components/theme-toggle.tsx",
-                lineNumber: 38,
+                lineNumber: 37,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$dialog$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["DialogContent"], {
-                className: "p-0 overflow-hidden border-primary/40 bg-card max-w-xl",
+                className: "p-0 overflow-hidden border-primary/35 bg-black max-w-xl text-green-300",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "terminal-titlebar",
+                        className: "px-4 py-3 border-b border-primary/35 bg-[#080808] flex items-center justify-between",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex items-center gap-2",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "terminal-dot-red"
+                                        className: "h-2.5 w-2.5 rounded-full bg-red-500/80"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/theme-toggle.tsx",
-                                        lineNumber: 52,
+                                        lineNumber: 46,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "terminal-dot-yellow"
+                                        className: "h-2.5 w-2.5 rounded-full bg-yellow-500/80"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/theme-toggle.tsx",
-                                        lineNumber: 53,
+                                        lineNumber: 47,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "terminal-dot-green"
+                                        className: "h-2.5 w-2.5 rounded-full bg-green-500/80"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/theme-toggle.tsx",
-                                        lineNumber: 54,
+                                        lineNumber: 48,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/theme-toggle.tsx",
-                                lineNumber: 51,
+                                lineNumber: 45,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "text-xs font-code text-primary/80",
+                                className: "font-code text-xs text-primary",
                                 children: "theme@portfolio:~"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/theme-toggle.tsx",
-                                lineNumber: 56,
+                                lineNumber: 50,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/theme-toggle.tsx",
-                        lineNumber: 50,
+                        lineNumber: 44,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                        className: "terminal-content",
+                        className: "p-5 bg-black",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "terminal-prompt",
-                                children: "theme --status"
+                                className: "font-code text-sm text-primary",
+                                children: "$ theme --status"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/theme-toggle.tsx",
-                                lineNumber: 59,
+                                lineNumber: 54,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                className: "terminal-output mb-4",
+                                className: "mt-1 text-sm text-muted-foreground",
                                 children: [
                                     "Current: ",
                                     (theme || 'dark').toUpperCase()
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/theme-toggle.tsx",
-                                lineNumber: 60,
+                                lineNumber: 55,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                className: "mb-4 space-y-1 text-xs md:text-sm font-code",
-                                children: history.map((line, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
-                                        className: line.startsWith('>') ? 'text-primary/90' : 'text-muted-foreground',
+                                className: "mt-4 rounded-md border border-primary/35 bg-[#050505] p-3 space-y-1",
+                                children: history.map((line, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: `font-code text-xs md:text-sm ${line.startsWith('>') ? 'text-primary' : 'text-muted-foreground'}`,
                                         children: line
-                                    }, `${line}-${idx}`, false, {
+                                    }, `${line}-${index}`, false, {
                                         fileName: "[project]/src/components/theme-toggle.tsx",
-                                        lineNumber: 64,
+                                        lineNumber: 59,
                                         columnNumber: 15
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/theme-toggle.tsx",
-                                lineNumber: 62,
+                                lineNumber: 57,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                                onSubmit: (event)=>{
-                                    event.preventDefault();
-                                    runCommand(input);
+                                onSubmit: (e)=>{
+                                    e.preventDefault();
+                                    runThemeCommand(input);
                                 },
-                                className: "flex items-center gap-2 border border-primary/35 bg-black/50 rounded-md px-3 py-2",
+                                className: "mt-4 flex items-center gap-2 rounded-md border border-primary/40 bg-[#050505] px-3 py-2",
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                        className: "text-accent font-code text-sm",
+                                        className: "font-code text-cyan-400",
                                         children: "$"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/theme-toggle.tsx",
-                                        lineNumber: 77,
+                                        lineNumber: 75,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                        autoFocus: true,
                                         value: input,
-                                        onChange: (event)=>setInput(event.target.value),
-                                        placeholder: "type: light",
-                                        className: "w-full bg-transparent border-none outline-none font-code text-sm text-foreground placeholder:text-muted-foreground"
+                                        onChange: (e)=>setInput(e.target.value),
+                                        placeholder: "light",
+                                        className: "w-full bg-transparent border-none outline-none text-sm font-code text-green-200 placeholder:text-muted-foreground"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/theme-toggle.tsx",
-                                        lineNumber: 78,
+                                        lineNumber: 76,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/theme-toggle.tsx",
-                                lineNumber: 70,
+                                lineNumber: 68,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/theme-toggle.tsx",
-                        lineNumber: 58,
+                        lineNumber: 53,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/theme-toggle.tsx",
-                lineNumber: 49,
+                lineNumber: 43,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/src/components/theme-toggle.tsx",
-        lineNumber: 37,
+        lineNumber: 36,
         columnNumber: 5
     }, this);
 }
-_s(ThemeToggle, "yFMNjnsZoeY9CfFZKwXSPojiJ+c=", false, function() {
+_s(ThemeToggle, "AVDMPPuhScPsz4NBquoTNGbL0co=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2d$themes$2f$dist$2f$index$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useTheme"]
     ];
@@ -678,13 +673,13 @@ __turbopack_context__.s({
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/client/app-dir/link.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/menu.js [app-client] (ecmascript) <export default as Menu>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/button.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$sheet$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/sheet.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$theme$2d$toggle$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/theme-toggle.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$active$2d$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/use-active-section.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/utils.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$nav$2d$items$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/nav-items.ts [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$framer$2d$motion$2f$dist$2f$es$2f$render$2f$components$2f$motion$2f$proxy$2e$mjs__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/framer-motion/dist/es/render/components/motion/proxy.mjs [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
 'use client';
@@ -2415,7 +2410,8 @@ const SKILLS = {
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].POSTGRESQL,
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].MYSQL,
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].MONGODB,
-        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].OPENAI
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].OPENAI,
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].GRAPHQL
     ],
     [__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONSTANTS"].TOOLS]: [
         __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].GIT,
@@ -3441,18 +3437,18 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$t
 const EXP_SECTIONS = [
     {
         company: {
-            name: 'Karmadhi Solutions',
-            url: 'https://techsolutions.com',
-            logo: '/company-logo-1.png',
-            location: 'Surat, Gujarat, India'
+            name: "Shunyavkash Pvt Ltd",
+            url: "https://shunyavkash.com",
+            logo: "/company-logo-1.png",
+            location: "Surat, Gujarat, India"
         },
         roles: [
             {
-                title: 'Full Stack Developer',
-                startDate: '2025-04-31T18:30:00.000Z',
+                title: "Full Stack Developer",
+                startDate: "2025-12-01T18:30:00.000Z",
                 endDate: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONSTANTS"].CURRENT,
                 details: [
-                    'Working as a Full Stack Developer in MERN technologies'
+                    "Working as a Full Stack Developer in MERN technologies"
                 ],
                 skills: [
                     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].NESTJS,
@@ -3470,18 +3466,47 @@ const EXP_SECTIONS = [
     },
     {
         company: {
-            name: 'Karmadhi Solutions',
-            url: 'https://webinnovators.com',
-            logo: '/company-logo-2.png',
-            location: 'surat, Gujarat, India'
+            name: "Karmadhi Solutions",
+            url: "https://techsolutions.com",
+            logo: "/company-logo-1.png",
+            location: "Surat, Gujarat, India"
         },
         roles: [
             {
-                title: 'ReactJS Developer',
-                startDate: '2024-08-1T18:30:00.000Z',
-                endDate: '2025-04-30T18:30:00.000Z',
+                title: "Full Stack Developer",
+                startDate: "2025-04-31T18:30:00.000Z",
+                endDate: "2025-11-29T18:30:00.000Z",
                 details: [
-                    'Worked as a Full Stack Web Developer, with variety of tools & technologies like JavaScript, React, Node.js, Express, MongoDB, etc.'
+                    "Working as a Full Stack Developer in MERN technologies"
+                ],
+                skills: [
+                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].NESTJS,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].REACT,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].NODE_JS,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].MONGODB,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].EXPRESS,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].MONGODB,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].REDUX,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].POSTGRESQL,
+                    __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].MYSQL
+                ]
+            }
+        ]
+    },
+    {
+        company: {
+            name: "Karmadhi Solutions",
+            url: "https://webinnovators.com",
+            logo: "/company-logo-2.png",
+            location: "surat, Gujarat, India"
+        },
+        roles: [
+            {
+                title: "ReactJS Developer",
+                startDate: "2024-08-1T18:30:00.000Z",
+                endDate: "2025-04-30T18:30:00.000Z",
+                details: [
+                    "Worked as a Full Stack Web Developer, with variety of tools & technologies like JavaScript, React, Node.js, Express, MongoDB, etc."
                 ],
                 skills: [
                     __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["RESOURCES"].REACT,
@@ -4825,12 +4850,12 @@ __turbopack_context__.s({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$section$2d$in$2d$view$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/hooks/use-section-in-view.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$personal$2d$info$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/personal-info.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$skills$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/skills.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$experiences$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/experiences.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$projects$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/data/projects.ts [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/lib/constants.ts [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$terminal$2d$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/terminal-section.tsx [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ui/button.tsx [app-client] (ecmascript)");
 ;
 var _s = __turbopack_context__.k.signature();
@@ -4843,236 +4868,263 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const baseHints = [
-    "Type 'help' for available commands.",
-    "Try: about, skills, work, projects, contact, clear"
+const defaultLines = [
+    {
+        type: 'hint',
+        text: 'Portfolio terminal ready.'
+    },
+    {
+        type: 'hint',
+        text: "Try: help, about, skills, work, projects, contact, clear"
+    }
 ];
 function PortfolioTerminal() {
     _s();
-    const [input, setInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    const [history, setHistory] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])([
-        {
-            kind: 'hint',
-            text: 'Interactive Portfolio Terminal ready.'
-        },
-        {
-            kind: 'hint',
-            text: baseHints[0]
-        },
-        {
-            kind: 'hint',
-            text: baseHints[1]
-        }
-    ]);
-    const skillsText = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
-        "PortfolioTerminal.useMemo[skillsText]": ()=>{
-            const frontend = (__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$skills$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SKILLS"][__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONSTANTS"].FRONTEND] || []).map({
-                "PortfolioTerminal.useMemo[skillsText].frontend": (item)=>item?.title
-            }["PortfolioTerminal.useMemo[skillsText].frontend"]).filter(Boolean).join(', ');
-            const backend = (__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$skills$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SKILLS"][__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONSTANTS"].BACKEND] || []).map({
-                "PortfolioTerminal.useMemo[skillsText].backend": (item)=>item?.title
-            }["PortfolioTerminal.useMemo[skillsText].backend"]).filter(Boolean).join(', ');
-            const tools = (__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$skills$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SKILLS"][__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONSTANTS"].TOOLS] || []).map({
-                "PortfolioTerminal.useMemo[skillsText].tools": (item)=>item?.title
-            }["PortfolioTerminal.useMemo[skillsText].tools"]).filter(Boolean).join(', ');
-            return [
-                `Frontend: ${frontend}`,
-                `Backend: ${backend}`,
-                `Tools: ${tools}`
-            ].join('\n');
-        }
-    }["PortfolioTerminal.useMemo[skillsText]"], []);
-    const experienceText = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
-        "PortfolioTerminal.useMemo[experienceText]": ()=>{
-            return __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$experiences$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EXP_SECTIONS"].flatMap({
-                "PortfolioTerminal.useMemo[experienceText]": (company)=>company.roles.map({
-                        "PortfolioTerminal.useMemo[experienceText]": (role)=>{
-                            const endDate = role.endDate === __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONSTANTS"].CURRENT ? 'Present' : role.endDate.slice(0, 10);
-                            return `${role.title} @ ${company.company.name} (${role.startDate.slice(0, 10)} -> ${endDate})`;
-                        }
-                    }["PortfolioTerminal.useMemo[experienceText]"])
-            }["PortfolioTerminal.useMemo[experienceText]"]).join('\n');
-        }
-    }["PortfolioTerminal.useMemo[experienceText]"], []);
-    const projectsText = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useMemo"])({
-        "PortfolioTerminal.useMemo[projectsText]": ()=>{
-            return __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$projects$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PROJECTS"].map({
-                "PortfolioTerminal.useMemo[projectsText]": (project)=>`- ${project.title}: ${project.subTitle}`
-            }["PortfolioTerminal.useMemo[projectsText]"]).join('\n');
-        }
-    }["PortfolioTerminal.useMemo[projectsText]"], []);
-    const onRun = (rawValue)=>{
-        const value = rawValue.trim();
-        const cmd = value.toLowerCase();
-        if (!value) return;
+    const { ref } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$section$2d$in$2d$view$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSectionInView"])('Terminal', 0.4);
+    const [command, setCommand] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
+    const [lines, setLines] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(defaultLines);
+    const runCommand = (value)=>{
+        const cmd = value.trim().toLowerCase();
+        if (!cmd) return;
         const next = [
             {
-                kind: 'input',
+                type: 'input',
                 text: `$ ${value}`
             }
         ];
         if (cmd === 'help') {
             next.push({
-                kind: 'output',
-                text: 'Commands: whoami, about, skills, work, experience, projects, contact, clear'
+                type: 'output',
+                text: 'Available commands: whoami, about, skills, work, experience, projects, contact, clear'
             });
         } else if (cmd === 'whoami') {
             next.push({
-                kind: 'output',
+                type: 'output',
                 text: `${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$personal$2d$info$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PERSONAL_INFO"].fullName} - ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$personal$2d$info$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PERSONAL_INFO"].designation}`
             });
         } else if (cmd === 'about') {
             next.push({
-                kind: 'output',
+                type: 'output',
                 text: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$personal$2d$info$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ABOUT_SECTIONS"].join('\n\n')
             });
         } else if (cmd === 'skills') {
+            const frontend = (__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$skills$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SKILLS"][__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONSTANTS"].FRONTEND] || []).map((s)=>s.title).join(', ');
+            const backend = (__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$skills$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SKILLS"][__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONSTANTS"].BACKEND] || []).map((s)=>s.title).join(', ');
+            const tools = (__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$skills$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["SKILLS"][__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONSTANTS"].TOOLS] || []).map((s)=>s.title).join(', ');
             next.push({
-                kind: 'output',
-                text: skillsText
+                type: 'output',
+                text: `Frontend: ${frontend}\nBackend: ${backend}\nTools: ${tools}`
             });
         } else if (cmd === 'work' || cmd === 'experience') {
+            const expText = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$experiences$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["EXP_SECTIONS"].flatMap((company)=>company.roles.map((role)=>{
+                    const end = role.endDate === __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$constants$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CONSTANTS"].CURRENT ? 'Present' : role.endDate.slice(0, 10);
+                    return `${role.title} @ ${company.company.name} (${role.startDate.slice(0, 10)} -> ${end})`;
+                })).join('\n');
             next.push({
-                kind: 'output',
-                text: experienceText || 'No experience found.'
+                type: 'output',
+                text: expText || 'No experience found.'
             });
         } else if (cmd === 'projects') {
+            const projectsText = __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$projects$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PROJECTS"].map((project)=>`${project.title} - ${project.subTitle}`).join('\n');
             next.push({
-                kind: 'output',
+                type: 'output',
                 text: projectsText || 'No projects found.'
             });
         } else if (cmd === 'contact') {
             next.push({
-                kind: 'output',
+                type: 'output',
                 text: `Email: ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$personal$2d$info$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PERSONAL_INFO"].email}\nPhone: ${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$personal$2d$info$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["PERSONAL_INFO"].phone}`
             });
         } else if (cmd === 'clear') {
-            setHistory([
-                {
-                    kind: 'hint',
-                    text: 'Terminal cleared.'
-                },
-                {
-                    kind: 'hint',
-                    text: baseHints[0]
-                },
-                {
-                    kind: 'hint',
-                    text: baseHints[1]
-                }
-            ]);
-            setInput('');
+            setLines(defaultLines);
+            setCommand('');
             return;
         } else {
             next.push({
-                kind: 'output',
-                text: `Command not found: ${value}\nTry 'help'.`
+                type: 'output',
+                text: `Unknown command: ${value}\nType 'help'`
             });
         }
-        setHistory((prev)=>[
+        setLines((prev)=>[
                 ...prev,
                 ...next
-            ].slice(-22));
-        setInput('');
+            ].slice(-24));
+        setCommand('');
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("section", {
+        ref: ref,
         id: "terminal",
-        className: "py-20 bg-gradient-to-b from-background via-background to-secondary/30",
+        className: "py-20 bg-background",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
-            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$terminal$2d$section$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["TerminalSection"], {
-                title: "Portfolio Terminal",
-                path: "~/portfolio/console",
-                command: "portfolio --interactive",
-                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                    className: "space-y-4",
-                    children: [
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                            className: "rounded-md border border-primary/35 bg-black/60 p-4 h-[360px] overflow-y-auto",
-                            children: history.map((line, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("pre", {
-                                    className: `whitespace-pre-wrap break-words font-code text-xs md:text-sm mb-2 ${line.kind === 'input' ? 'text-accent' : line.kind === 'hint' ? 'text-muted-foreground' : 'text-foreground'}`,
-                                    children: line.text
-                                }, `${line.kind}-${index}`, false, {
-                                    fileName: "[project]/src/components/portfolio-terminal.tsx",
-                                    lineNumber: 123,
-                                    columnNumber: 17
-                                }, this))
-                        }, void 0, false, {
-                            fileName: "[project]/src/components/portfolio-terminal.tsx",
-                            lineNumber: 121,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
-                            onSubmit: (event)=>{
-                                event.preventDefault();
-                                onRun(input);
-                            },
-                            className: "flex flex-col sm:flex-row gap-3",
-                            children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                    className: "flex-1 flex items-center gap-2 rounded-md border border-primary/45 bg-black/65 px-3 py-2",
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                            className: "font-code text-accent",
-                                            children: "$"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/portfolio-terminal.tsx",
-                                            lineNumber: 142,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            value: input,
-                                            onChange: (event)=>setInput(event.target.value),
-                                            placeholder: "type command: about",
-                                            className: "w-full bg-transparent border-none outline-none text-sm font-code text-foreground placeholder:text-muted-foreground"
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/portfolio-terminal.tsx",
-                                            lineNumber: 143,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
-                                    fileName: "[project]/src/components/portfolio-terminal.tsx",
-                                    lineNumber: 141,
-                                    columnNumber: 15
-                                }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
-                                    type: "submit",
-                                    children: "Run"
-                                }, void 0, false, {
-                                    fileName: "[project]/src/components/portfolio-terminal.tsx",
-                                    lineNumber: 150,
-                                    columnNumber: 15
-                                }, this)
-                            ]
-                        }, void 0, true, {
-                            fileName: "[project]/src/components/portfolio-terminal.tsx",
-                            lineNumber: 134,
-                            columnNumber: 13
-                        }, this)
-                    ]
-                }, void 0, true, {
-                    fileName: "[project]/src/components/portfolio-terminal.tsx",
-                    lineNumber: 120,
-                    columnNumber: 11
-                }, this)
-            }, void 0, false, {
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "rounded-xl border border-primary/40 bg-black text-green-300 overflow-hidden shadow-xl shadow-black/60",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "px-4 py-3 border-b border-primary/30 bg-[#080808] flex items-center justify-between",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex items-center gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "h-2.5 w-2.5 rounded-full bg-red-500/80"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                        lineNumber: 96,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "h-2.5 w-2.5 rounded-full bg-yellow-500/80"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                        lineNumber: 97,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "h-2.5 w-2.5 rounded-full bg-green-500/80"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                        lineNumber: 98,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                lineNumber: 95,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "font-code text-xs text-primary",
+                                children: "jenil@portfolio:~/data"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                lineNumber: 100,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/portfolio-terminal.tsx",
+                        lineNumber: 94,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "p-5 md:p-6 bg-black",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "font-code text-primary text-sm",
+                                children: "$ fetch --portfolio-data"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                lineNumber: 104,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "mt-3 text-2xl md:text-4xl font-bold text-primary",
+                                children: "Interactive Terminal"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                lineNumber: 105,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "mt-2 text-muted-foreground",
+                                children: "Type commands to explore profile data."
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                lineNumber: 106,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mt-6 rounded-md border border-primary/35 bg-[#050505] p-4 h-[360px] overflow-y-auto",
+                                children: lines.map((line, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("pre", {
+                                        className: `whitespace-pre-wrap break-words font-code text-xs md:text-sm mb-2 ${line.type === 'input' ? 'text-cyan-400' : line.type === 'hint' ? 'text-muted-foreground' : 'text-green-300'}`,
+                                        children: line.text
+                                    }, `${line.type}-${index}`, false, {
+                                        fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                        lineNumber: 110,
+                                        columnNumber: 17
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                lineNumber: 108,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+                                onSubmit: (e)=>{
+                                    e.preventDefault();
+                                    runCommand(command);
+                                },
+                                className: "mt-4 flex flex-col sm:flex-row gap-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex-1 rounded-md border border-primary/45 bg-[#050505] px-3 py-2 flex items-center gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-cyan-400 font-code",
+                                                children: "$"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                                lineNumber: 129,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                value: command,
+                                                onChange: (e)=>setCommand(e.target.value),
+                                                placeholder: "command...",
+                                                className: "w-full bg-transparent border-none outline-none text-sm font-code text-green-200 placeholder:text-muted-foreground"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                                lineNumber: 130,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                        lineNumber: 128,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
+                                        type: "submit",
+                                        children: "Run"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                        lineNumber: 137,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/components/portfolio-terminal.tsx",
+                                lineNumber: 121,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/portfolio-terminal.tsx",
+                        lineNumber: 103,
+                        columnNumber: 11
+                    }, this)
+                ]
+            }, void 0, true, {
                 fileName: "[project]/src/components/portfolio-terminal.tsx",
-                lineNumber: 119,
+                lineNumber: 93,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "[project]/src/components/portfolio-terminal.tsx",
-            lineNumber: 118,
+            lineNumber: 92,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/portfolio-terminal.tsx",
-        lineNumber: 117,
+        lineNumber: 91,
         columnNumber: 5
     }, this);
 }
-_s(PortfolioTerminal, "h0v46ps5ftEkuly46Ql7m4HzF4A=");
+_s(PortfolioTerminal, "wIsRnHl2eOi+hmJZ+KJFkYZDASQ=", false, function() {
+    return [
+        __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$hooks$2f$use$2d$section$2d$in$2d$view$2e$ts__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useSectionInView"]
+    ];
+});
 _c = PortfolioTerminal;
 var _c;
 __turbopack_context__.k.register(_c, "PortfolioTerminal");

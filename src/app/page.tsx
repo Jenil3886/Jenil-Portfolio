@@ -5,8 +5,8 @@ import { SkillsSection } from '@/components/skills-section';
 import { ProjectsSection } from '@/components/projects-section';
 import { ExperienceSection } from '@/components/experience-section';
 import { ContactSection } from '@/components/contact-section';
-import { Footer } from '@/components/footer';
 import { PortfolioTerminal } from '@/components/portfolio-terminal';
+import { Footer } from '@/components/footer';
 import { PERSONAL_INFO, PERSONAL_INFO_LINKS } from '@/data/personal-info';
 
 export default function Home() {
