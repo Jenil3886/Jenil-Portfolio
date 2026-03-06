@@ -6,6 +6,7 @@ import { ProjectsSection } from '@/components/projects-section';
 import { ExperienceSection } from '@/components/experience-section';
 import { ContactSection } from '@/components/contact-section';
 import { Footer } from '@/components/footer';
+import { PortfolioTerminal } from '@/components/portfolio-terminal';
 import { PERSONAL_INFO, PERSONAL_INFO_LINKS } from '@/data/personal-info';
 
 export default function Home() {
@@ -75,6 +76,7 @@ export default function Home() {
         <Header />
         <main className="flex-1">
           <HeroSection />
+          <PortfolioTerminal />
           <AboutSection />
           <SkillsSection />
           <ProjectsSection />

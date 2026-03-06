@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Github, ExternalLink } from 'lucide-react';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { PROJECTS } from '@/data/projects';
+import { fadeInUp, staggerContainer, viewport } from '@/lib/motion';
+import { TerminalSection } from '@/components/terminal-section';
 
 // Convert the PROJECTS data to the format needed by the component
 const projects = PROJECTS.map(project => ({
@@ -22,20 +24,19 @@ const projects = PROJECTS.map(project => ({
 export function ProjectsSection() {
   const { ref } = useSectionInView('Projects');
   return (
-    <section ref={ref} id="projects" className="min-h-screen py-20 bg-gradient-to-br from-muted/20 via-background to-background">
+    <section ref={ref} id="projects" className="min-h-screen py-20 bg-gradient-to-b from-background via-background to-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A showcase of my recent work and technical expertise
-          </p>
-        </div>
+        <TerminalSection title="Featured Projects" path="~/portfolio/projects" command="git log --oneline --graph">
+          <p className="terminal-output mb-8">A showcase of my recent work and technical expertise.</p>
 
         {/* Projects Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+        >
           {projects.map((project, index) => {
             // Handle both object (with .src) and string previews
             const previewSrc = typeof project.preview === 'string' 
@@ -43,7 +44,13 @@ export function ProjectsSection() {
               : (project.preview?.src || null);
             
             return (
-            <Card key={index} className="group hover-scale overflow-hidden">
+            <motion.div
+              key={index}
+              variants={fadeInUp}
+              transition={{ duration: 0.45 }}
+              whileHover={{ y: -8 }}
+            >
+            <Card className="group overflow-hidden terminal-shell hover:border-primary/60 transition-all duration-300">
               <CardHeader className="p-0">
                 <div className="relative overflow-hidden">
                   {previewSrc ? (
@@ -110,9 +117,11 @@ export function ProjectsSection() {
                 )}
               </CardFooter>
             </Card>
+            </motion.div>
             );
           })}
-        </div>
+        </motion.div>
+        </TerminalSection>
       </div>
     </section>
   );

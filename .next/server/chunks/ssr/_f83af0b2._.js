@@ -3642,7 +3642,7 @@ const PERSONAL_INFO = {
     designation: 'MERN Stack Developer',
     email: 'gajerajenil08@gmail.com',
     phone: '+91 63511 95084',
-    yearOfExp: 1.5
+    yearOfExp: 1
 };
 const PERSONAL_INFO_LINKS = {
     phone: `tel:+${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$values$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["VALUES"].PHONE_CODE}${(0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["removeSpaces"])(PERSONAL_INFO.phone)}`,
@@ -3694,10 +3694,11 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$data$2f$personal$2d$i
 ;
 function Footer() {
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("footer", {
-        className: "w-full py-6 px-4 md:px-6 border-t bg-background",
+        className: "w-full py-6 px-4 md:px-6 border-t border-primary/25 bg-background/80 backdrop-blur",
         children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
             className: "container mx-auto text-center text-sm text-muted-foreground",
             children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$rsc$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$rsc$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                className: "font-medium tracking-wide",
                 children: [
                     "© ",
                     new Date().getFullYear(),

@@ -6,6 +6,10 @@ export const NAV_ITEMS = [
     label: LABELS.HOME,
   },
   {
+    path: '#terminal',
+    label: 'Terminal',
+  },
+  {
     path: HASH_PATHS.ABOUT,
     label: LABELS.ABOUT_ME,
   },

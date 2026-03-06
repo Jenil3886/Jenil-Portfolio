@@ -7,6 +7,8 @@ import { useSectionInView } from '@/hooks/use-section-in-view';
 import { ABOUT_SECTIONS, PERSONAL_INFO } from '@/data/personal-info';
 import jenilImage from '@/assets/jenil1.png';
 import Image from 'next/image';
+import { fadeInUp, staggerContainer, viewport } from '@/lib/motion';
+import { TerminalSection } from '@/components/terminal-section';
 
 export function AboutSection() {
   const { ref } = useSectionInView('About');
@@ -59,21 +61,21 @@ export function AboutSection() {
   ];
   
   return (
-    <section ref={ref} id="about" className="min-h-screen py-20 bg-gradient-to-br from-background via-background/50 to-muted/20">
+    <section ref={ref} id="about" className="min-h-screen py-20 bg-gradient-to-b from-background via-background to-secondary/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            About Me
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Passionate developer with a love for creating innovative solutions
-          </p>
-        </div>
-
-        <div className="grid lg:grid-cols-3 gap-8">
+        <TerminalSection title="About Me" path="~/portfolio/about" command="cat profile.md">
+          <p className="terminal-output mb-8">Passionate developer with a love for creating innovative solutions.</p>
+          <div className="grid lg:grid-cols-3 gap-8">
           {/* Profile Card */}
-          <Card className="lg:col-span-1 overflow-hidden border-2 border-primary/10 hover:border-primary/30 transition-all duration-300 hover:shadow-xl hover:shadow-primary/10">
+          <motion.div
+            initial={{ opacity: 0, y: 26 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewport}
+            transition={{ duration: 0.55 }}
+            whileHover={{ y: -6 }}
+            className="lg:col-span-1"
+          >
+            <Card className="terminal-shell overflow-hidden border-2 border-primary/25 hover:border-primary/60 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20">
             <CardContent className="p-8 text-center relative">
               {/* Gradient Background */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5 opacity-50" />
@@ -123,11 +125,19 @@ export function AboutSection() {
               </div>
             </CardContent>
           </Card>
+          </motion.div>
 
           {/* Bio & Experience */}
-          <div className="lg:col-span-2 space-y-6">
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={viewport}
+            className="lg:col-span-2 space-y-6"
+          >
             {/* Bio */}
-            <Card>
+            <motion.div variants={fadeInUp} transition={{ duration: 0.5 }}>
+              <Card className="glass-panel">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                   <Code className="h-5 w-5 text-primary" />
@@ -140,14 +150,23 @@ export function AboutSection() {
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
 
             {/* Experience */}
-            <Card>
+            <motion.div variants={fadeInUp} transition={{ duration: 0.5 }}>
+              <Card className="glass-panel">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Experience</h3>
                 <div className="space-y-4">
                 {experiences.map((exp, index) => (
-                  <div key={index} className="border-l-2 border-primary/20 pl-4">
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, x: -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={viewport}
+                    transition={{ duration: 0.45, delay: index * 0.08 }}
+                    className="border-l-2 border-primary/20 pl-4"
+                  >
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
                       <h4 className="font-medium">{exp.title}</h4>
                       <span className="text-sm text-muted-foreground">{exp.period}</span>
@@ -159,31 +178,39 @@ export function AboutSection() {
                         <li key={i}>{line}</li>
                       ))}
                     </ul>
-                  </div>
+                  </motion.div>
                 ))}
 
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
             
             {/* Interests */}
-            <Card>
+            <motion.div variants={fadeInUp} transition={{ duration: 0.5 }}>
+              <Card className="glass-panel">
               <CardContent className="p-6">
                 <h3 className="text-xl font-semibold mb-4">Interests</h3>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
                   {interests.map((interest, index) => (
-                    <div key={index} className="flex flex-col items-center text-center gap-2">
+                    <motion.div
+                      key={index}
+                      whileHover={{ y: -5 }}
+                      className="flex flex-col items-center text-center gap-2"
+                    >
                       <div className="p-3 rounded-full bg-primary/10">
                         <interest.icon className="h-5 w-5 text-primary" />
                       </div>
                       <span className="text-sm">{interest.label}</span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </CardContent>
             </Card>
+            </motion.div>
+          </motion.div>
           </div>
-        </div>
+        </TerminalSection>
       </div>
     </section>
   );

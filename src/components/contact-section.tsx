@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import { Github, Linkedin, Mail, MapPin, Phone, Send, ExternalLink, Loader2 } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin, Phone, Send, Loader2 } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
@@ -16,6 +16,9 @@ import { useToast } from '@/hooks/use-toast';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { PERSONAL_INFO, PERSONAL_INFO_LINKS } from '@/data/personal-info';
 import { EMAILJS_DATA } from '@/lib/constants';
+import { motion } from 'framer-motion';
+import { fadeInUp, staggerContainer, viewport } from '@/lib/motion';
+import { TerminalSection } from '@/components/terminal-section';
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Name must be at least 2 characters.' }),
@@ -91,28 +94,31 @@ export function ContactSection() {
   }
 
   return (
-    <section ref={ref} id="contact" className="py-20 bg-gradient-to-br from-background via-muted/10 to-background">
+    <section ref={ref} id="contact" className="py-20 bg-gradient-to-b from-background via-background to-secondary/30">
       <div className="container px-4 md:px-6 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Let's Connect
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+        <TerminalSection title={"Let's Connect"} path="~/portfolio/contact" command="send-message --new">
+          <p className="terminal-output mb-8">
+            Have a project in mind or want to discuss opportunities? I&apos;d love to hear from you.
           </p>
-        </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+          className="grid md:grid-cols-2 gap-8"
+        >
           {/* Contact Form */}
           {/* <Card className="shadow-lg hover-scale"> */}
-          <Card className="shadow-lg">
+          <motion.div variants={fadeInUp} transition={{ duration: 0.5 }} whileHover={{ y: -5 }}>
+          <Card className="terminal-shell">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Send className="h-5 w-5 text-primary" />
                 Send a Message
               </CardTitle>
               <CardDescription>
-                I'll get back to you as soon as possible.
+                I&apos;ll get back to you as soon as possible.
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -175,11 +181,12 @@ export function ContactSection() {
               </Form>
             </CardContent>
           </Card>
+          </motion.div>
 
           {/* Contact Info */}
-          <div className="space-y-6">
+          <motion.div variants={fadeInUp} transition={{ duration: 0.5 }} className="space-y-6">
             {/* <Card className="shadow-lg hover-scale"> */}
-            <Card className="shadow-lg">
+            <Card className="terminal-shell">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2">
                   <Mail className="h-5 w-5 text-primary" />
@@ -215,8 +222,10 @@ export function ContactSection() {
                   <Label className="mb-2 block">Connect with me</Label>
                   <div className="flex gap-4">
                     {socialLinks.map((social) => (
-                      <a
+                      <motion.a
                         key={social.name}
+                        whileHover={{ y: -3, scale: 1.08 }}
+                        whileTap={{ scale: 0.95 }}
                         href={social.url}
                         target="_blank"
                         rel="noopener noreferrer"
@@ -224,7 +233,7 @@ export function ContactSection() {
                         aria-label={social.name}
                       >
                         <social.icon className="h-5 w-5" />
-                      </a>
+                      </motion.a>
                     ))}
                   </div>
                 </div>
@@ -232,11 +241,11 @@ export function ContactSection() {
             </Card>
 
             {/* <Card className="shadow-lg hover-scale bg-gradient-to-br from-primary/10 via-background to-background"> */}
-            <Card className="shadow-lg bg-gradient-to-br from-primary/10 via-background to-background">
+            <Card className="terminal-shell bg-gradient-to-br from-primary/10 via-background to-background">
               <CardContent className="pt-6">
                 <h3 className="text-xl font-semibold mb-2">Available for Freelance</h3>
                 <p className="text-muted-foreground mb-4">
-                  I'm currently available for freelance projects and open to new opportunities.
+                  I&apos;m currently available for freelance projects and open to new opportunities.
                 </p>
                 <Button variant="outline" className="w-full" asChild>
                   <a href={`mailto:${PERSONAL_INFO.email}`}>
@@ -245,8 +254,9 @@ export function ContactSection() {
                 </Button>
               </CardContent>
             </Card>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
+        </TerminalSection>
       </div>
     </section>
   );

@@ -1,12 +1,15 @@
 'use client';
 
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Database, Globe, Server, Code } from 'lucide-react';
+import { Database, Globe, Server } from 'lucide-react';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { SKILLS } from '@/data/skills';
 import { CONSTANTS } from '@/lib/constants';
 import { IconRenderer } from '@/components/icon-renderer';
+import { fadeInUp, staggerContainer, viewport } from '@/lib/motion';
+import { TerminalSection } from '@/components/terminal-section';
 
 const scrollToSection = (href: string) => {
   const element = document.querySelector(href);
@@ -47,29 +50,26 @@ export function SkillsSection() {
     },
   ];
 
-  
-
   return (
     <section
       ref={ref}
       id="skills"
-      className="min-h-screen py-20 bg-gradient-to-br from-background via-muted/10 to-background"
+      className="min-h-screen py-20 bg-gradient-to-b from-background via-background to-secondary/30"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Skills & Expertise
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Technical proficiencies and continuous learning journey
-          </p>
-        </div>
+        <TerminalSection title="Skills & Expertise" path="~/portfolio/skills" command="ls -la stack/">
+          <p className="terminal-output mb-8">Technical proficiencies and continuous learning journey.</p>
 
         {/* Skills Categories */}
-        <div className="space-y-12 mb-16">
+        <motion.div
+          className="space-y-12 mb-16"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+        >
           {skillCategories.map((category, index) => (
-            <div key={index} className="space-y-5">
+            <motion.div key={index} variants={fadeInUp} transition={{ duration: 0.45 }} className="space-y-5">
               <div className="flex items-center gap-2">
                 <category.icon className="h-5 w-5 text-emerald-400" />
                 <h3 className="text-xl font-semibold text-emerald-400">
@@ -79,34 +79,46 @@ export function SkillsSection() {
 
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {category.skills.map((skill, skillIndex) => (
-                  <Card
+                  <motion.div
                     key={skillIndex}
-                    className="border-border/60 bg-card/80 hover:bg-card hover:border-primary/70 transition-colors"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={viewport}
+                    transition={{ duration: 0.35, delay: skillIndex * 0.03 }}
+                    whileHover={{ y: -5 }}
                   >
-                    <CardContent className="flex items-center gap-4 py-4">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted/80">
-                        <IconRenderer icon={skill.icon} className="h-6 w-6" />
-                      </div>
-                      <span className="text-sm font-medium">{skill.name}</span>
-                    </CardContent>
-                  </Card>
+                    <Card className="terminal-shell hover:border-primary/70 transition-colors">
+                      <CardContent className="flex items-center gap-4 py-4">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-muted/80">
+                          <IconRenderer icon={skill.icon} className="h-6 w-6" />
+                        </div>
+                        <span className="text-sm font-medium">{skill.name}</span>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA */}
-        <div className="text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewport}
+          transition={{ duration: 0.45 }}
+          className="text-center"
+        >
           <p className="text-muted-foreground mb-6">
             Interested in working together? Let&apos;s discuss your project.
           </p>
           <Button size="lg" onClick={() => scrollToSection('#contact')}>
             Contact Me
           </Button>
-        </div>
+        </motion.div>
+        </TerminalSection>
       </div>
     </section>
   );
 }
-

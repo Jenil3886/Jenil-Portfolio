@@ -52,101 +52,71 @@
 
 @layer base {
   :root {
-    /* Core colors - tech-focused palette */
-    --background: 0 0% 100%;
-    --foreground: 220 13% 9%;
+    /* Light terminal palette */
+    --background: 0 0% 97%;
+    --foreground: 220 30% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 13% 9%;
+    --card-foreground: 220 30% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 13% 9%;
+    --popover-foreground: 220 30% 12%;
 
-    /* Primary - Tech blue */
-    --primary: 217 91% 60%;
+    --primary: 154 68% 34%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 217 91% 70%;
+    --primary-glow: 154 68% 44%;
 
-    /* Secondary - Code editor gray */
-    --secondary: 220 13% 96%;
-    --secondary-foreground: 220 13% 9%;
+    --secondary: 0 0% 93%;
+    --secondary-foreground: 220 30% 12%;
 
-    /* Muted - Subtle backgrounds */
-    --muted: 220 13% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 0 0% 93%;
+    --muted-foreground: 220 10% 42%;
 
-    /* Accent - Success green */
-    --accent: 142 76% 36%;
+    --accent: 190 78% 36%;
     --accent-foreground: 0 0% 100%;
-    --accent-glow: 142 76% 46%;
+    --accent-glow: 190 78% 46%;
 
     /* Destructive - Error red */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
     /* Borders and inputs */
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 217 91% 60%;
+    --border: 220 14% 82%;
+    --input: 220 14% 82%;
+    --ring: 154 68% 34%;
 
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 70%));
-    --gradient-accent: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
-    --gradient-bg: linear-gradient(180deg, hsl(0 0% 100%), hsl(220 13% 98%));
+    --gradient-primary: linear-gradient(135deg, hsl(154 68% 34%), hsl(190 78% 36%));
+    --gradient-accent: linear-gradient(135deg, hsl(154 68% 34%), hsl(154 68% 44%));
+    --gradient-bg: radial-gradient(circle at top, hsl(0 0% 100%), hsl(0 0% 97%) 58%);
 
     /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(220 13% 9% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(220 13% 9% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(220 13% 9% / 0.1);
-    --shadow-glow: 0 0 20px hsl(217 91% 60% / 0.3);
+    --shadow-sm: 0 1px 2px 0 hsl(220 30% 8% / 0.08);
+    --shadow-md: 0 4px 6px -1px hsl(220 30% 8% / 0.16);
+    --shadow-lg: 0 16px 32px -8px hsl(220 30% 8% / 0.2);
+    --shadow-glow: 0 0 24px hsl(154 68% 34% / 0.2);
 
     --radius: 0.75rem;
   }
 
   .dark {
-    /* Dark mode - editor-like theme */
-    --background: 220 13% 9%;
-    --foreground: 220 13% 91%;
-
-    --card: 220 13% 11%;
-    --card-foreground: 220 13% 91%;
-
-    --popover: 220 13% 11%;
-    --popover-foreground: 220 13% 91%;
-
-    /* Primary - Bright tech blue */
-    --primary: 217 91% 70%;
-    --primary-foreground: 220 13% 9%;
-    --primary-glow: 217 91% 80%;
-
-    /* Secondary - Dark editor panels */
-    --secondary: 220 13% 15%;
-    --secondary-foreground: 220 13% 91%;
-
-    /* Muted - Code editor backgrounds */
-    --muted: 220 13% 15%;
-    --muted-foreground: 220 9% 60%;
-
-    /* Accent - Terminal green */
-    --accent: 142 76% 46%;
-    --accent-foreground: 220 13% 9%;
-    --accent-glow: 142 76% 56%;
-
-    /* Borders darker */
-    --border: 220 13% 20%;
-    --input: 220 13% 20%;
-    --ring: 217 91% 70%;
-
-    /* Dark gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 70%), hsl(217 91% 80%));
-    --gradient-accent: linear-gradient(135deg, hsl(142 76% 46%), hsl(142 76% 56%));
-    --gradient-bg: linear-gradient(180deg, hsl(220 13% 9%), hsl(220 13% 7%));
-
-    /* Dark shadows with glow */
-    --shadow-sm: 0 1px 2px 0 hsl(0 0% 0% / 0.3);
-    --shadow-md: 0 4px 6px -1px hsl(0 0% 0% / 0.3);
-    --shadow-lg: 0 10px 15px -3px hsl(0 0% 0% / 0.3);
-    --shadow-glow: 0 0 20px hsl(217 91% 70% / 0.4);
+    --background: 0 0% 2%;
+    --foreground: 142 66% 86%;
+    --card: 222 45% 5%;
+    --card-foreground: 142 66% 86%;
+    --popover: 222 45% 5%;
+    --popover-foreground: 142 66% 86%;
+    --primary: 141 71% 48%;
+    --primary-foreground: 0 0% 2%;
+    --secondary: 222 40% 8%;
+    --secondary-foreground: 142 66% 86%;
+    --muted: 222 26% 11%;
+    --muted-foreground: 144 18% 66%;
+    --accent: 187 85% 46%;
+    --accent-foreground: 0 0% 2%;
+    --border: 141 42% 22%;
+    --input: 141 36% 16%;
+    --ring: 141 71% 48%;
   }
 }
 
@@ -156,6 +126,11 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image:
+      linear-gradient(hsl(141 71% 48% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(141 71% 48% / 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    text-shadow: 0 0 7px hsl(141 71% 48% / 0.1);
   }
   html {
     scroll-behavior: smooth;
@@ -172,47 +147,130 @@
   .story-link {
     @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
   }
-}
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+  .glass-panel {
+    @apply border border-border/70 bg-card/75 backdrop-blur-md shadow-lg shadow-black/40;
   }
-  to {
-    transform: rotate(360deg);
+
+  .section-title {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-bold;
+  }
+
+  .terminal-shell {
+    @apply rounded-md border border-primary/45 bg-card/95 shadow-xl shadow-primary/10;
+  }
+
+  .terminal-titlebar {
+    @apply flex items-center justify-between border-b border-primary/25 bg-secondary/70 px-4 py-2.5;
+  }
+
+  .terminal-content {
+    @apply p-5 md:p-6;
+    background:
+      linear-gradient(hsl(141 71% 48% / 0.025), hsl(141 71% 48% / 0.025)),
+      repeating-linear-gradient(
+        180deg,
+        transparent 0,
+        transparent 3px,
+        hsl(141 71% 48% / 0.03) 4px
+      );
+  }
+
+  .terminal-prompt {
+    @apply font-code text-xs md:text-sm text-primary tracking-wide;
+  }
+
+  .terminal-prompt::before {
+    content: "$ ";
+    @apply text-accent;
+  }
+
+  .terminal-output {
+    @apply mt-1 text-muted-foreground text-sm md:text-base;
+  }
+
+  .terminal-dot-red {
+    @apply h-2.5 w-2.5 rounded-full bg-red-500/80;
+  }
+
+  .terminal-dot-yellow {
+    @apply h-2.5 w-2.5 rounded-full bg-yellow-500/80;
+  }
+
+  .terminal-dot-green {
+    @apply h-2.5 w-2.5 rounded-full bg-green-500/80;
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, -28px, 0) scale(1.05);
   }
 }
 
-.card {
-  padding: 2em;
+@keyframes float-medium {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(0, 22px, 0) scale(0.96);
+  }
 }
 
-.read-the-docs {
-  color: #888;
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.32;
+  }
+  50% {
+    opacity: 0.56;
+  }
+}
+
+.ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(38px);
+  pointer-events: none;
+}
+
+.ambient-orb-1 {
+  width: 28rem;
+  height: 28rem;
+  background: hsl(var(--primary) / 0.24);
+  top: -10rem;
+  left: -8rem;
+  animation: float-slow 15s ease-in-out infinite, pulse-glow 7s ease-in-out infinite;
+}
+
+.ambient-orb-2 {
+  width: 24rem;
+  height: 24rem;
+  background: hsl(var(--accent) / 0.2);
+  right: -6rem;
+  top: 20vh;
+  animation: float-medium 13s ease-in-out infinite, pulse-glow 8s ease-in-out infinite;
+}
+
+.ambient-orb-3 {
+  width: 20rem;
+  height: 20rem;
+  background: hsl(var(--primary) / 0.16);
+  left: 35%;
+  bottom: -8rem;
+  animation: float-slow 12s ease-in-out infinite reverse, pulse-glow 9s ease-in-out infinite;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 0%, hsl(0 0% 0% / 0.55) 100%);
+  z-index: 30;
 }

@@ -1,11 +1,12 @@
 'use client';
 
-import { Briefcase, GraduationCap } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useSectionInView } from '@/hooks/use-section-in-view';
 import { EXP_SECTIONS } from '@/data/experiences';
 import { CONSTANTS } from '@/lib/constants';
-import { IconRenderer } from '@/components/icon-renderer';
+import { fadeInUp, viewport } from '@/lib/motion';
+import { TerminalSection } from '@/components/terminal-section';
 
 // Convert the EXP_SECTIONS data to the format needed by the component
 const experiences = EXP_SECTIONS.flatMap(exp => {
@@ -37,16 +38,17 @@ const experiences = EXP_SECTIONS.flatMap(exp => {
 export function ExperienceSection() {
   const { ref } = useSectionInView('Experience');
   return (
-    <section ref={ref} id="experience" className="w-full py-12 md:py-24 lg:py-32">
+    <section ref={ref} id="experience" className="w-full py-12 md:py-24 lg:py-32 bg-gradient-to-b from-background via-background to-secondary/30">
       <div className="container px-4 md:px-6">
+        <TerminalSection title="My Journey" path="~/portfolio/experience" command="history --career">
         <motion.div
           className="mx-auto max-w-3xl text-center"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial="hidden"
+          whileInView="show"
+          viewport={viewport}
+          variants={fadeInUp}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">My Journey</h2>
           <p className="mt-4 text-muted-foreground md:text-xl/relaxed">
             A timeline of my professional and educational experiences.
           </p>
@@ -61,7 +63,7 @@ export function ExperienceSection() {
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={viewport}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
                 className="relative flex items-start md:items-center"
               >
@@ -92,6 +94,7 @@ export function ExperienceSection() {
             ))}
           </div>
         </div>
+        </TerminalSection>
       </div>
     </section>
   );
@@ -100,14 +103,14 @@ export function ExperienceSection() {
 
 const TimelineContent = ({exp}: {exp: (typeof experiences)[0]}) => {
   return (
-    <div className="rounded-lg shadow-lg w-full px-6 py-4 bg-card">
+    <motion.div whileHover={{ y: -4 }} className="terminal-shell w-full px-6 py-4">
       <p className="mb-2 text-sm text-muted-foreground">{exp.date}</p>
       <h3 className="mb-2 font-bold text-card-foreground text-lg">{exp.title}</h3>
       <h4 className="mb-3 font-semibold text-primary">{exp.company}</h4>
       <p className="text-sm leading-snug tracking-wide text-muted-foreground">
         {exp.description}
       </p>
-    </div>
+    </motion.div>
   )
 }
                     

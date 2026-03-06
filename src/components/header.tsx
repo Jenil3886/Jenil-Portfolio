@@ -1,19 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { Menu, Code } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import { ThemeToggle } from './theme-toggle';
 import { useActiveSection } from '@/hooks/use-active-section';
 import { cn } from '@/lib/utils';
-import { useSectionInView } from '@/hooks/use-section-in-view';
-import Image from 'next/image';
 import { NAV_ITEMS } from '@/data/nav-items';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import LogoDark from '@/assets/logo 1.png';
-import LogoLight from '@/assets/logo 1 light.png';
+import { motion } from 'framer-motion';
 
 export const navLinks = NAV_ITEMS.map(item => ({
   name: item.label,
@@ -22,58 +17,40 @@ export const navLinks = NAV_ITEMS.map(item => ({
 
 export function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } = useActiveSection();
-  const { theme, systemTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-
-  // Handle theme detection (avoid hydration mismatch)
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  // Determine current theme (handle system theme)
-  const currentTheme = theme === 'system' ? systemTheme : theme;
-  const isDark = currentTheme === 'dark';
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-primary/30 bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/80">
       <div className="container flex h-16 items-center">
-        <Link href="#home" className="mr-6 flex items-center space-x-2">
-          {/* <Code className="h-6 w-6" />
-          <span className="font-bold">Jenil Gajera</span> */}
-          {mounted ? (
-            <Image 
-              src={isDark ? LogoDark : LogoLight} 
-              alt="Jenil Gajera" 
-              width={130} 
-              height={50} 
-            />
-          ) : (
-            // Show dark logo as default until theme is detected
-            <Image 
-              src={LogoDark} 
-              alt="Jenil Gajera" 
-              width={130} 
-              height={50} 
-            />
-          )}
+        <Link href="#home" className="mr-6 flex items-center">
+          <motion.div whileHover={{ y: -1.5 }} whileTap={{ scale: 0.99 }} className="font-code text-sm md:text-base text-primary tracking-wide">
+            <span className="text-accent">$</span> jenil@portfolio
+            <span className="text-muted-foreground">:~</span>
+          </motion.div>
         </Link>
 
-        <nav className="hidden md:flex flex-1 items-center space-x-6 text-sm font-medium">
+        <nav className="hidden md:flex flex-1 items-center space-x-6 text-sm font-semibold">
           {navLinks.map((link) => (
-            <Link
-              key={link.hash}
-              href={link.hash}
-              onClick={() => {
-                setActiveSection(link.name);
-                setTimeOfLastClick(Date.now());
-              }}
-              className={cn(
-                'transition-colors hover:text-primary',
-                activeSection === link.name ? 'text-primary' : 'text-muted-foreground'
-              )}
-            >
-              {link.name}
-            </Link>
+            <motion.div key={link.hash} whileHover={{ y: -2 }}>
+              <Link
+                href={link.hash}
+                onClick={() => {
+                  setActiveSection(link.name);
+                  setTimeOfLastClick(Date.now());
+                }}
+                className={cn(
+                  'transition-colors hover:text-primary relative tracking-wide',
+                  activeSection === link.name ? 'text-primary' : 'text-muted-foreground'
+                )}
+              >
+                {link.name}
+                {activeSection === link.name && (
+                  <motion.span
+                    layoutId="active-nav"
+                    className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary rounded-full"
+                  />
+                )}
+              </Link>
+            </motion.div>
           ))}
         </nav>
 

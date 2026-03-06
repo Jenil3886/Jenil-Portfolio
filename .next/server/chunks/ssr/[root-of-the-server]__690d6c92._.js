@@ -3562,7 +3562,7 @@ const PERSONAL_INFO = {
     designation: 'MERN Stack Developer',
     email: 'gajerajenil08@gmail.com',
     phone: '+91 63511 95084',
-    yearOfExp: 1.5
+    yearOfExp: 1
 };
 const PERSONAL_INFO_LINKS = {
     phone: `tel:+${__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$values$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["VALUES"].PHONE_CODE}${(0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$lib$2f$utils$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["removeSpaces"])(PERSONAL_INFO.phone)}`,
